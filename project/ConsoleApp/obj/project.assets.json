@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Training\\project\\ConsoleApp\\ConsoleApp.csproj",
+      "projectUniqueName": "D:\\Training\\sdet_riteshlavti\\project\\ConsoleApp\\ConsoleApp.csproj",
       "projectName": "ConsoleApp",
-      "projectPath": "D:\\Training\\project\\ConsoleApp\\ConsoleApp.csproj",
+      "projectPath": "D:\\Training\\sdet_riteshlavti\\project\\ConsoleApp\\ConsoleApp.csproj",
       "packagesPath": "C:\\Users\\ritesh.lavti\\.nuget\\packages\\",
-      "outputPath": "D:\\Training\\project\\ConsoleApp\\obj\\",
+      "outputPath": "D:\\Training\\sdet_riteshlavti\\project\\ConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ritesh.lavti\\AppData\\Roaming\\NuGet\\NuGet.Config"

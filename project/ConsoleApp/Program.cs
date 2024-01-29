@@ -8,7 +8,6 @@ namespace Practice
             // Using String (Immutable)
             string str = "Hello, ";
             str = str + "world";
-            
             string multiLineStart = """
                     This is the beginning 
                     of a string 

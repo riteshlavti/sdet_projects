@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace StringInput
 {
     class GenerateString
@@ -14,16 +15,12 @@ namespace StringInput
             {
                 randomString += (char)('a' + random.Next(26));
             }
-            Console.WriteLine("Generated Random String is : " + randomString);
+            Console.WriteLine("Generated random string : " + randomString);
         }
-    }
-    class StringInput
-    {
         public static void Main(string[] args)
         {
             GenerateString obj = new GenerateString();
             obj.DisplayString();
         }
-
     }
 }

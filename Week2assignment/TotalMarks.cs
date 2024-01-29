@@ -1,4 +1,5 @@
 using System;
+
 namespace TotalMarks
 {
     class CalculateMarks
@@ -19,16 +20,11 @@ namespace TotalMarks
         {
             Console.WriteLine("Grand total of entered marks is : " + result);
         }
-    }
-    class TotalMarks
-    {
         public static void Main(string[] args)
         {
-
-            CalculateMArks obj = new CalculateMArks();
+            CalculateMarks obj = new CalculateMarks();
             obj.SumMarks();
             obj.DisplayResult();
-
         }
     }
 }

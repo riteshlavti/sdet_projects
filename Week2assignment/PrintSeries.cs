@@ -1,13 +1,14 @@
 using System;
-namespace PrintSeries
+
+namespace PrintSeriesProgram
 {
-    class Series
+    class PrintSeries
     {
         private int seriesLength;
         internal void TakeInput()
         {
             Console.WriteLine("Enter the length of series: ");
-            string input=Console.ReadLine();
+            string input = Console.ReadLine();
             this.seriesLength = Convert.ToInt32(input);
             return;
         }
@@ -18,25 +19,20 @@ namespace PrintSeries
                 Console.WriteLine("To print series, length should be greater than 0.");
                 return;
             }
-            int currentNumber = 1;
-            Console.Write("Series: 1 ");
-            for (int index = 1; index < seriesLength; index++)
+            int currentNumber = 1, nextNumber;
+            Console.Write("Series : ");
+            for (int index = 1; index <= seriesLength; index++)
             {
-                Console.Write(index * index + currentNumber + " ");
-                currentNumber = index * index + currentNumber;
+                Console.Write(currentNumber + " ");
+                nextNumber = index * index + currentNumber;
+                currentNumber=nextNumber;
             }
         }
-    }
-    
-    class PrintSeries
-    {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
-            Series obj = new Series();
+            PrintSeries obj = new PrintSeries();
             obj.TakeInput();
             obj.DisplaySeries();
         }
-
     }
 }
