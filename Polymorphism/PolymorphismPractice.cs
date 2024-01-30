@@ -13,7 +13,6 @@ namespace PolymorphismProject
         public override void Test()
         {
             Console.WriteLine("child class");
-            base.Test();
         }
     }
     class ChildClassTwo : ParentClass
@@ -31,6 +30,8 @@ namespace PolymorphismProject
             obj.Test();
             ChildClassTwo objTwo = new ChildClassTwo();
             objTwo.Test();
+            ParentClass refObj = obj;
+            refObj.Test();
         }
     }
 }
