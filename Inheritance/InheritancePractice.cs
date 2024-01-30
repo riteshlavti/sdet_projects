@@ -74,6 +74,7 @@ namespace InheritanceProject
             A.Display1();
             B.Display1();
             C.Display3();
+            
         }
     }
 
