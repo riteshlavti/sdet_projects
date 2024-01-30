@@ -7,7 +7,11 @@ namespace InheritanceProject
         {
             Console.WriteLine("Printing in ParentClass");
         }
-        
+        public  void Test()
+        {
+            Console.WriteLine("parent");
+        }
+
     }
     class ParentTwo
     {
@@ -15,13 +19,14 @@ namespace InheritanceProject
         {
             Console.WriteLine("Printing in Parent2");
         }
-        public ParentTwo(int a ){
-            Console.WriteLine("Example of calling parameterized constructor from child class for input : "+a);
+        public ParentTwo(int a)
+        {
+            Console.WriteLine("Example of calling parameterized constructor from child class for input : " + a);
         }
     }
     interface IParent
     {
-        
+
     }
     interface IParentTwo
     {
@@ -34,6 +39,10 @@ namespace InheritanceProject
         {
             Console.WriteLine("Printing in ChildA");
         }
+        public new void Test()
+        {
+            Console.WriteLine("Child");
+        }
     }
     class ChildB : ChildA
     {
@@ -42,15 +51,15 @@ namespace InheritanceProject
             Console.WriteLine("Printing in ChildB");
         }
     }
-    class ChildC: IParent, IParentTwo
+    class ChildC : IParent, IParentTwo
     {
         public void Display3()
         {
             Console.WriteLine("Multiple inheritance using interface.");
         }
-        
+
     }
-    class ChildD: ParentTwo
+    class ChildD : ParentTwo
     {
         public ChildD(int a) : base(a)
         {
@@ -61,12 +70,12 @@ namespace InheritanceProject
     {
         static void Main()
         {
-            ParentClass obj = new ParentClass();
+            // ParentClass obj = new ParentClass();
             // Object class is the automatically the base class for all classes.
             // Console.WriteLine(obj.GetType());
             // Console.WriteLine(obj.GetHashCode());            
             // Console.WriteLine(obj.ToString());
-            ChildA A= new ChildA();
+            ChildA A = new ChildA();
             ChildB B = new ChildB();
             ChildC C = new ChildC();
             ChildD D = new ChildD(10);
@@ -74,7 +83,8 @@ namespace InheritanceProject
             A.Display1();
             B.Display1();
             C.Display3();
-            
+            ParentClass obj = new ChildA();
+            obj.Test();  // We can call child class method in case of overriding by referencing.
         }
     }
 
