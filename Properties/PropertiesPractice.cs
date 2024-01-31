@@ -4,6 +4,7 @@ namespace PropertiesProject
     class PropertiesPractice
     {
         int _Pincode;
+        int _CountryCode;
         public int Pincode
         {
             set
@@ -15,6 +16,10 @@ namespace PropertiesProject
             {
                 return _Pincode;
             }
+        }
+        public int CountryCode
+        {
+            get; set;
         }
         static void Main()
         {
