@@ -1,0 +1,15 @@
+D:\Training\sdet_riteshlavti\DateAndTimeProject\bin\Debug\net8.0\DateAndTimeProject.exe
+D:\Training\sdet_riteshlavti\DateAndTimeProject\bin\Debug\net8.0\DateAndTimeProject.deps.json
+D:\Training\sdet_riteshlavti\DateAndTimeProject\bin\Debug\net8.0\DateAndTimeProject.runtimeconfig.json
+D:\Training\sdet_riteshlavti\DateAndTimeProject\bin\Debug\net8.0\DateAndTimeProject.dll
+D:\Training\sdet_riteshlavti\DateAndTimeProject\bin\Debug\net8.0\DateAndTimeProject.pdb
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.GeneratedMSBuildEditorConfig.editorconfig
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.AssemblyInfoInputs.cache
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.AssemblyInfo.cs
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.csproj.CoreCompileInputs.cache
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.sourcelink.json
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.dll
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\refint\DateAndTimeProject.dll
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.pdb
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\DateAndTimeProject.genruntimeconfig.cache
+D:\Training\sdet_riteshlavti\DateAndTimeProject\obj\Debug\net8.0\ref\DateAndTimeProject.dll
