@@ -19,6 +19,8 @@ namespace DateAndTimeProject
 
             string shortDate = currentDateTime.ToShortDateString();
             Console.WriteLine(shortDate);
+
+            
         }
     }
 }
