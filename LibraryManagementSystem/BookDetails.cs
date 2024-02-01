@@ -1,59 +1,57 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace LibraryManagementSystem
+﻿namespace LibraryManagementSystem;
+public abstract class BookDetails
 {
-    public abstract class BookDetails
+    public string Title
     {
-        public string Title
-        {
-            get; set;
-        }
-        public string Author
-        {
-            get; set;
-        }
-        public string Publication
-        {
-            get; set;
-        }
-        private DateTime Date;
-        protected BookType Type
-        {
-            get; set;
-        }
-        public int BookId
-        {
-            get;
-        }
-        public BookDetails(string title, string author, string publication, DateTime date, int bookId)
-        {
-            Title = title;
-            Author = author;
-            Publication = publication;
-            Date = date;
-            BookId = bookId;
-        }
+        get; set;
     }
-    class FictionalBook : BookDetails
+    public string Author
     {
-
-        public FictionalBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
-        {
-            Type = BookType.FictionalBook;
-        }
+        get; set;
     }
-    class HorrorBook : BookDetails
+    public string Publication
     {
-        public HorrorBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
-        {
-            Type = BookType.HorrorBook;
-        }
+        get; set;
     }
-    class AdventureBook : BookDetails
+    private DateTime Date;
+    protected BookType Type
     {
-        public AdventureBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
-        {
-            Type = BookType.AdventureBook;
-        }
+        get; set;
+    }
+    public int BookId
+    {
+        get;
+    }
+    public BookDetails(string title, string author, string publication, DateTime date, int bookId)
+    {
+        Title = title;
+        Author = author;
+        Publication = publication;
+        Date = date;
+        BookId = bookId;
     }
 }
+class FictionalBook : BookDetails
+{
+
+    public FictionalBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
+    {
+        Type = BookType.FictionalBook;
+    }
+}
+class HorrorBook : BookDetails
+{
+    public HorrorBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
+    {
+        Type = BookType.HorrorBook;
+    }
+}
+class AdventureBook : BookDetails
+{
+    public AdventureBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
+    {
+        Type = BookType.AdventureBook;
+    }
+}
+
+

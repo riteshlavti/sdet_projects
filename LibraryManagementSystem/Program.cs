@@ -6,7 +6,8 @@ namespace LibraryManagementProject
     {
         static void Main()
         {
-            BookManager.Start();
+            BookManager startButton = new BookManager();
+            startButton.Start();
         }
     }
 }

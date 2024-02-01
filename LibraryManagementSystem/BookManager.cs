@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
-using System.Transactions;
-
-namespace LibraryManagementSystem;
-
+﻿namespace LibraryManagementSystem;
 interface IBookOperation
 {
     void AddBook();
@@ -13,15 +9,13 @@ interface IBookOperation
 }
 public class BookManager : IBookOperation
 {
-    private List<BookDetails> list ;
-    public BookManager()
+    private List<BookDetails> list = new List<BookDetails>();
+    
+    public void Start()
     {
-       list = new List<BookDetails>();
-    }
-    public static void Start()
-    {
+        Console.WriteLine();
         Console.WriteLine("""
-                        Select the operation which you want to use- 
+                        ------Select the operation which you want to use------ 
                         1. Add Book
                         2. Delete Book
                         3. Update Book
@@ -32,24 +26,24 @@ public class BookManager : IBookOperation
 
         int bookOperation = Convert.ToInt32(Console.ReadLine());
 
-        BookManager obj = new BookManager();
+        //BookManager obj = new BookManager();
 
         switch (bookOperation)
         {
             case 1:
-                obj.AddBook();
+                AddBook();
                 break;
             case 2:
-                obj.DeleteBook();
+                DeleteBook();
                 break;
             case 3:
-                obj.UpdateBook();
+                UpdateBook();
                 break;
             case 4:
-                obj.SearchBook();
+                SearchBook();
                 break;
             case 5:
-                obj.ListBooks();
+                ListBooks();
                 break;
             case 6:
                 Environment.Exit(0);
@@ -60,7 +54,6 @@ public class BookManager : IBookOperation
                 break;
         }
         Start();
-
     }
     public void AddBook()
     {
@@ -103,13 +96,15 @@ public class BookManager : IBookOperation
     {
         Console.WriteLine("Enter the book Id which you want to delete - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("length of list : "+ list.Count);
+        Console.WriteLine("length of list : " + list.Count);
         foreach (var item in list)
         {
             if (item.BookId == bookId)
             {
                 Console.WriteLine("{0} deleted succesfully! ", item.Title);
                 list.Remove(item);
+                return;
+                
             }
         }
         Console.WriteLine("Can't find book");
@@ -136,7 +131,7 @@ public class BookManager : IBookOperation
                 {
                     item.Title = title;
                     Console.WriteLine("Book updated successfully!");
-                    break;
+                    return;
                 }
             }
         }
@@ -150,11 +145,9 @@ public class BookManager : IBookOperation
                 {
                     item.Title = title;
                     Console.WriteLine("Book updated successfully!");
-                    break;
+                    return;
                 }
-
             }
-
         }
         else if (menuOption == 3)
         {
@@ -166,15 +159,14 @@ public class BookManager : IBookOperation
                 {
                     item.Title = title;
                     Console.WriteLine("Book updated successfully!");
-                    break;
+                    return;
                 }
             }
         }
         else
         {
             Console.WriteLine("Enter the correct option - ");
-            UpdateBook();
-        }        
+        }
     }
     public void SearchBook()
     {
@@ -183,12 +175,12 @@ public class BookManager : IBookOperation
         Console.WriteLine(list.Count);
         foreach (var item in list)
         {
-            Console.WriteLine("searching...{0}",item.BookId);
-            
+            Console.WriteLine("searching...{0}", item.BookId);
+
             if (item.BookId == bookId)
             {
                 Console.WriteLine("Your book is - " + item.Title);
-                Start();
+                return;                 
             }
 
         }
@@ -203,3 +195,4 @@ public class BookManager : IBookOperation
         }
     }
 }
+
