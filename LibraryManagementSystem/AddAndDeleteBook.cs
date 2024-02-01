@@ -9,6 +9,7 @@ interface IBookOperation
     void DeleteBook();
     void UpdateBook();
     void SearchBook();
+    void ListBooks();
 }
 public class BookManager : IBookOperation
 {
@@ -20,7 +21,8 @@ public class BookManager : IBookOperation
                         2. Delete Book
                         3. Update Book
                         4. Search Book
-                        5. Exit
+                        5. List Books
+                        6. Exit
                         """);
 
         int bookOperation =  Convert.ToInt32(Console.ReadLine());
@@ -37,7 +39,9 @@ public class BookManager : IBookOperation
                     break;
             case 4: obj.SearchBook();
                     break;
-            case 5: Environment.Exit(0);
+            case 5: obj.ListBooks();
+                    break;
+            case 6: Environment.Exit(0);
                     break;
             default:
                     Console.WriteLine("Choose correct option.");
@@ -177,5 +181,13 @@ public class BookManager : IBookOperation
         }
         Console.WriteLine("Can't find book!");
         Start();
+    }
+    public void ListBooks()
+    {
+        Console.WriteLine("Available books are - ");
+        foreach(var item in list)
+        {
+            Console.WriteLine("{0} written by {1} and pulished by {2}.",item.Title,item.Author,item.Publication);
+        }
     }
 }
