@@ -33,7 +33,6 @@ public abstract class BookDetails
 }
 class FictionalBook : BookDetails
 {
-
     public FictionalBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
     {
         Type = BookType.FictionalBook;
@@ -53,5 +52,3 @@ class AdventureBook : BookDetails
         Type = BookType.AdventureBook;
     }
 }
-
-

@@ -1,4 +1,6 @@
-﻿namespace LibraryManagementSystem;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace LibraryManagementSystem;
 interface IBookOperation
 {
     void AddBook();
@@ -7,15 +9,14 @@ interface IBookOperation
     void SearchBook();
     void ListBooks();
 }
-public class BookManager : IBookOperation
+public class BookManagement : IBookOperation
 {
     private List<BookDetails> list = new List<BookDetails>();
-    
     public void Start()
     {
         Console.WriteLine();
         Console.WriteLine("""
-                        ------Select the operation which you want to use------ 
+                        ------SELECT A OPERATION WHICH YOU WANT TO PERFORM------ 
                         1. Add Book
                         2. Delete Book
                         3. Update Book
@@ -23,11 +24,7 @@ public class BookManager : IBookOperation
                         5. List Books
                         6. Exit
                         """);
-
         int bookOperation = Convert.ToInt32(Console.ReadLine());
-
-        //BookManager obj = new BookManager();
-
         switch (bookOperation)
         {
             case 1:
@@ -57,8 +54,8 @@ public class BookManager : IBookOperation
     }
     public void AddBook()
     {
+        Console.WriteLine("---ADDING A BOOK---");
         Console.WriteLine("Which type of book you want to add - ");
-
         string bookTypeMenu = """
                     1. Fictional Book.
                     2. Horror Book.
@@ -94,23 +91,23 @@ public class BookManager : IBookOperation
     }
     public void DeleteBook()
     {
+        Console.WriteLine("---DELETE A BOOK---");
         Console.WriteLine("Enter the book Id which you want to delete - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("length of list : " + list.Count);
         foreach (var item in list)
         {
             if (item.BookId == bookId)
             {
                 Console.WriteLine("{0} deleted succesfully! ", item.Title);
                 list.Remove(item);
-                return;
-                
+                return;     
             }
         }
         Console.WriteLine("Can't find book");
     }
     public void UpdateBook()
     {
+        Console.WriteLine("---UPDATE BOOK DETAIL---");
         Console.Write("Enter the book Id - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
         string menu = """
@@ -138,12 +135,12 @@ public class BookManager : IBookOperation
         else if (menuOption == 2)
         {
             Console.Write("Enter new Author - ");
-            string title = Console.ReadLine();
+            string author = Console.ReadLine();
             foreach (BookDetails item in list)
             {
                 if (item.BookId == bookId)
                 {
-                    item.Title = title;
+                    item.Title = author;
                     Console.WriteLine("Book updated successfully!");
                     return;
                 }
@@ -152,12 +149,12 @@ public class BookManager : IBookOperation
         else if (menuOption == 3)
         {
             Console.Write("Enter new Publication - ");
-            string title = Console.ReadLine();
+            string publication = Console.ReadLine();
             foreach (var item in list)
             {
                 if (item.BookId == bookId)
                 {
-                    item.Title = title;
+                    item.Title = publication;
                     Console.WriteLine("Book updated successfully!");
                     return;
                 }
@@ -170,24 +167,23 @@ public class BookManager : IBookOperation
     }
     public void SearchBook()
     {
+        Console.WriteLine("---SEARCH A BOOK---");
         Console.WriteLine("Enter the book Id - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine(list.Count);
         foreach (var item in list)
         {
-            Console.WriteLine("searching...{0}", item.BookId);
-
             if (item.BookId == bookId)
             {
-                Console.WriteLine("Your book is - " + item.Title);
+                Console.WriteLine("Your book is - {0}, written by {1}", item.Title,item.Author);
                 return;                 
             }
-
         }
         Console.WriteLine("Can't find book!");
     }
     public void ListBooks()
     {
+        Console.WriteLine("---BOOKS IN LIBRARY ARE---");
         Console.WriteLine("Available books are - ");
         foreach (var item in list)
         {
