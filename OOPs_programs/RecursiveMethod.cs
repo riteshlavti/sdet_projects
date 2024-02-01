@@ -1,7 +1,7 @@
 using System;
 namespace RecursiveMethod
 {
-    class Program
+    class RecursiveProgram
     {
         static void Main()
         {
