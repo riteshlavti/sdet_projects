@@ -16,9 +16,7 @@ namespace LibraryManagementSystem
         {
             get; set;
         }
-
         private DateTime Date;
-
         protected BookType Type
         {
             get; set;
@@ -33,31 +31,29 @@ namespace LibraryManagementSystem
             Author = author;
             Publication = publication;
             Date = date;
-            BookId=bookId;
+            BookId = bookId;
         }
-
     }
     class FictionalBook : BookDetails
     {
-        
+
         public FictionalBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
         {
-            Type = BookType.FictionalBook;       
+            Type = BookType.FictionalBook;
         }
     }
     class HorrorBook : BookDetails
     {
         public HorrorBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
         {
-            Type = BookType.HorrorBook;       
+            Type = BookType.HorrorBook;
         }
     }
     class AdventureBook : BookDetails
     {
         public AdventureBook(string title, string author, string publication, DateTime date, int bookId) : base(title, author, publication, date, bookId)
         {
-            Type = BookType.AdventureBook;       
+            Type = BookType.AdventureBook;
         }
-
     }
 }
