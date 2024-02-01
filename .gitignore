@@ -6,9 +6,9 @@
 # Node artifact files
 node_modules/
 dist/
-LibraryManagementSystem\bin
-LibraryManagementSystem\obj
-LibraryManagementSystem.csproj
+LibraryManagementSystem/bin/
+LibraryManagementSystem/obj/
+LibraryManagementSystem/LibraryManagementSystem.csproj
 LibraryManagementSystem.sln
 
 # Compiled Java class files
