@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem
+﻿namespace BookManagementSystem
 {
     public enum BookType
     {

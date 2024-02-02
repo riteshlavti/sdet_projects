@@ -1,5 +1,5 @@
 ﻿using System;
-namespace LibraryManagementSystem
+namespace BookManagementSystem
 {
     class LibraryManagement
     {

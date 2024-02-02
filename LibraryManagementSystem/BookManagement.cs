@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem;
+﻿namespace BookManagementSystem;
 interface IBookOperation
 {
     void AddBook();
@@ -168,11 +168,11 @@ public class BookManagement : IBookOperation
         Console.WriteLine("---SEARCH A BOOK---");
         Console.WriteLine("Enter the book Id - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
-        foreach (var item in list)
+        foreach (var book in list)
         {
-            if (item.BookId == bookId)
+            if (book.BookId == bookId)
             {
-                Console.WriteLine("Your book is - {0}, written by {1}", item.Title,item.Author);
+                Console.WriteLine("Your book is - {0}, written by {1} and published by {2}", book.Title,book.Author,book.Publication);
                 return;                 
             }
         }
@@ -185,9 +185,9 @@ public class BookManagement : IBookOperation
         {
             Console.WriteLine("There are no books available in library.");
         }
-        foreach (var item in list)
+        foreach (var book in list)
         {
-            Console.WriteLine("{0} written by {1} and pulished by {2}.", item.Title, item.Author, item.Publication);
+            Console.WriteLine("{0} written by {1} and pulished by {2}.", book.Title, book.Author, book.Publication);
         }
     }
 }

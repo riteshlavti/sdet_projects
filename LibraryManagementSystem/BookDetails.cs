@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem;
+﻿namespace BookManagementSystem;
 public abstract class BookDetails
 {
     public string Title
