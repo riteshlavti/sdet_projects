@@ -10,6 +10,10 @@ LibraryManagementSystem/bin/
 LibraryManagementSystem/obj/
 LibraryManagementSystem/LibraryManagementSystem.csproj
 LibraryManagementSystem.sln
+RegExProject.sln
+OOPs_programs/
+RegExProject.sln
+.vscode/
 
 # Compiled Java class files
 *.class
