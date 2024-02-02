@@ -1,5 +1,5 @@
 ﻿using System.Text;
-namespace Practice
+namespace StringPractice
 {
     class Program
     {
