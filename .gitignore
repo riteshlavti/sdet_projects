@@ -6,6 +6,19 @@
 # Node artifact files
 node_modules/
 dist/
+.vscode
+RegExProject.sln
+LibraryManagementSystem/
+LibraryManagementSystem.sln
+OOPs_programs/RegExProject/bin/
+OOPs_programs/RegExProject/obj/
+OOPs_programs/RegExProject/RegExProject.csproj
+OOPs_programs/StringProject/ConsoleApp/bin/
+OOPs_programs/StringProject/ConsoleApp/obj/
+OOPs_programs/StringProject/.vscode/
+OOPs_programs/StringProject/ConsoleApp.sln
+OOPs_programs/StringProject/ConsoleApp/ConsoleApp.csproj
+
 
 # Compiled Java class files
 *.class
