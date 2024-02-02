@@ -17,6 +17,7 @@ OOPs_programs/StringProject/ConsoleApp/bin/
 OOPs_programs/StringProject/ConsoleApp/obj/
 OOPs_programs/StringProject/.vscode/
 OOPs_programs/StringProject/ConsoleApp.sln
+*.sln
 OOPs_programs/StringProject/ConsoleApp/ConsoleApp.csproj
 
 
