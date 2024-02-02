@@ -9,7 +9,7 @@ interface IBookOperation
 }
 public class BookManagement : IBookOperation
 {
-    private List<BookDetails> list = new List<BookDetails>();
+    private List<BookDetails> bookList = new List<BookDetails>();
     public void Start()
     {
         Console.WriteLine();
@@ -73,17 +73,17 @@ public class BookManagement : IBookOperation
         if (bookType == (int)BookType.FictionalBook)
         {
             FictionalBook book = new FictionalBook(title, author, publication, obj, bookId);
-            list.Add(book);
+            bookList.Add(book);
         }
         else if (bookType == (int)BookType.HorrorBook)
         {
             HorrorBook book = new HorrorBook(title, author, publication, obj, bookId);
-            list.Add(book);
+            bookList.Add(book);
         }
         else
         {
             AdventureBook book = new AdventureBook(title, author, publication, obj, bookId);
-            list.Add(book);
+            bookList.Add(book);
         }
         Console.WriteLine("{0} added succesfully! ", title);
     }
@@ -92,12 +92,12 @@ public class BookManagement : IBookOperation
         Console.WriteLine("---DELETE A BOOK---");
         Console.WriteLine("Enter the book Id which you want to delete - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
-        foreach (var item in list)
+        foreach (var item in bookList)
         {
             if (item.BookId == bookId)
             {
                 Console.WriteLine("{0} deleted succesfully! ", item.Title);
-                list.Remove(item);
+                bookList.Remove(item);
                 return;     
             }
         }
@@ -120,7 +120,7 @@ public class BookManagement : IBookOperation
         {
             Console.Write("Enter new title - ");
             string title = Console.ReadLine();
-            foreach (var item in list)
+            foreach (var item in bookList)
             {
                 if (item.BookId == bookId)
                 {
@@ -134,7 +134,7 @@ public class BookManagement : IBookOperation
         {
             Console.Write("Enter new Author - ");
             string author = Console.ReadLine();
-            foreach (BookDetails item in list)
+            foreach (BookDetails item in bookList)
             {
                 if (item.BookId == bookId)
                 {
@@ -148,7 +148,7 @@ public class BookManagement : IBookOperation
         {
             Console.Write("Enter new Publication - ");
             string publication = Console.ReadLine();
-            foreach (var item in list)
+            foreach (var item in bookList)
             {
                 if (item.BookId == bookId)
                 {
@@ -168,7 +168,7 @@ public class BookManagement : IBookOperation
         Console.WriteLine("---SEARCH A BOOK---");
         Console.WriteLine("Enter the book Id - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
-        foreach (var book in list)
+        foreach (var book in bookList)
         {
             if (book.BookId == bookId)
             {
@@ -181,11 +181,11 @@ public class BookManagement : IBookOperation
     public void ListBooks()
     {
         Console.WriteLine("---BOOKS IN LIBRARY ARE---");
-        if(list.Count==0)
+        if(bookList.Count==0)
         {
             Console.WriteLine("There are no books available in library.");
         }
-        foreach (var book in list)
+        foreach (var book in bookList)
         {
             Console.WriteLine("{0} written by {1} and pulished by {2}.", book.Title, book.Author, book.Publication);
         }
