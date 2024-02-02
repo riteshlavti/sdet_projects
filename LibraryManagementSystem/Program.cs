@@ -1,6 +1,5 @@
 ﻿using System;
-using LibraryManagementSystem;
-namespace LibraryManagementProject
+namespace LibraryManagementSystem
 {
     class LibraryManagement
     {

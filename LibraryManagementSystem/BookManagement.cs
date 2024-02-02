@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace LibraryManagementSystem;
+﻿namespace LibraryManagementSystem;
 interface IBookOperation
 {
     void AddBook();
@@ -170,7 +168,6 @@ public class BookManagement : IBookOperation
         Console.WriteLine("---SEARCH A BOOK---");
         Console.WriteLine("Enter the book Id - ");
         int bookId = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(list.Count);
         foreach (var item in list)
         {
             if (item.BookId == bookId)
@@ -184,7 +181,10 @@ public class BookManagement : IBookOperation
     public void ListBooks()
     {
         Console.WriteLine("---BOOKS IN LIBRARY ARE---");
-        Console.WriteLine("Available books are - ");
+        if(list.Count==0)
+        {
+            Console.WriteLine("There are no books available in library.");
+        }
         foreach (var item in list)
         {
             Console.WriteLine("{0} written by {1} and pulished by {2}.", item.Title, item.Author, item.Publication);

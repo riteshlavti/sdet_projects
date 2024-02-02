@@ -1,5 +1,7 @@
-﻿namespace LibraryManagementSystem;
-public enum BookType
+﻿namespace LibraryManagementSystem
 {
-    FictionalBook = 1, HorrorBook, AdventureBook
-};
+    public enum BookType
+    {
+        FictionalBook = 1, HorrorBook, AdventureBook
+    };
+}
