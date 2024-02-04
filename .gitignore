@@ -8,7 +8,7 @@ node_modules/
 dist/
 .vscode
 RegExProject.sln
-LibraryManagementSystem/
+BookManagementSystem/
 LibraryManagementSystem.sln
 OOPs_programs/RegExProject/bin/
 OOPs_programs/RegExProject/obj/
