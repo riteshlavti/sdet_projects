@@ -5,6 +5,7 @@ namespace PolymorphismProject
     {
         void ProcessPayment(decimal amount);
     }
+
     public class CreditCardPayment : IPaymentMethod
     {
         public void ProcessPayment(decimal amount)
@@ -12,6 +13,7 @@ namespace PolymorphismProject
             Console.WriteLine("Processing credit card payment for amount: {0}",amount);
         }
     }
+
     public class UPIPayment : IPaymentMethod
     {
         public void ProcessPayment(decimal amount)
@@ -19,6 +21,7 @@ namespace PolymorphismProject
             Console.WriteLine("Processing UPI payment for amount: {0}",amount);
         }
     }
+
     public class CashOnDelivery : IPaymentMethod
     {
         public void ProcessPayment(decimal amount)
@@ -26,6 +29,7 @@ namespace PolymorphismProject
             Console.WriteLine("Collecting cash on delivery for amount: {0}",amount);
         }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -40,5 +44,4 @@ namespace PolymorphismProject
             paymentMethod.ProcessPayment(5400);
         }
     }
-
 }

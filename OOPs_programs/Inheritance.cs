@@ -1,7 +1,6 @@
 using System;
 namespace InheritanceProject
 {
-    using System;
     public class ElectronicDevice
     {
         public string Manufacturer { get; set; }
@@ -12,25 +11,39 @@ namespace InheritanceProject
         {
             Console.WriteLine("Device powered on.");
         }
+
         public void PowerOff()
         {
             Console.WriteLine("Device powered off.");
         }
     }
+
     public class Smartphone : ElectronicDevice
     {
         public void MakeCall()
         {
             Console.WriteLine("Making a call.");
         }
+
+        public void SendTextMessage(string recipient, string message)
+        {
+            Console.WriteLine($"Sending text message to {recipient}: {message}");
+        }
     }
+
     public class Laptop : ElectronicDevice
     {
         public void RunProgram()
         {
             Console.WriteLine("Running a program.");
         }
+
+        public void Hibernate()
+        {
+            Console.WriteLine("Putting laptop into hibernation mode.");
+        }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -41,7 +54,9 @@ namespace InheritanceProject
             phone.Price = 70000;
             phone.PowerOn();
             phone.MakeCall();
+            phone.SendTextMessage("Ritik","Hello!");
             phone.PowerOff();
+
 
             Laptop laptop = new Laptop();
             laptop.Manufacturer = "HP";
@@ -49,6 +64,7 @@ namespace InheritanceProject
             laptop.Price = 83500;
             laptop.PowerOn();
             laptop.RunProgram();
+            laptop.Hibernate();
             laptop.PowerOff();
         }
     }

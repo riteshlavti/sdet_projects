@@ -11,6 +11,7 @@ namespace RecursiveMethod
             long factorial = CalculateFactorial(number);
             Console.WriteLine("Factorial of {0} is: {1}", number, factorial);
         }
+        
         static long CalculateFactorial(int n)
         {
             if (n == 0 || n == 1)
