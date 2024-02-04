@@ -5,8 +5,8 @@ namespace BookManagementSystem
     {
         static void Main()
         {
-            BookManagement startButton = new BookManagement();
-            startButton.Start();
+            BookOperation startButton = new BookOperation();
+            startButton.StartApp();
         }
     }
 }

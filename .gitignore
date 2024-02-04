@@ -6,16 +6,16 @@
 # Node artifact files
 node_modules/
 dist/
-LibraryManagementSystem/bin/
-LibraryManagementSystem/obj/
-LibraryManagementSystem/LibraryManagementSystem.csproj
+BookManagementSystem/bin/
+BookManagementSystem/obj/
+BookManagementSystem/BookManagementSystem.csproj
 LibraryManagementSystem.sln
 BookManagementSystem.sln
 RegExProject.sln
 OOPs_programs/
 RegExProject.sln
 .vscode/
-LibraryManagementSystem/BookManagementSystem.csproj
+BookManagementSystem.csproj
 
 
 # Compiled Java class files
