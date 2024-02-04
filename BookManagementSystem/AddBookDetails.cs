@@ -1,11 +1,11 @@
 using System.Net;
 namespace BookManagementSystem;
+
 /// <summary>
 /// This class is used for adding books to list and it is inheriting BookOperation class.
 /// </summary>
 public class AddBookDetails : BookOperation
 {
-
     /// <summary>
     /// This method is used to add the books in the list.
     /// </summary>
