@@ -6,8 +6,8 @@
 # Node artifact files
 node_modules/
 dist/
-BookManagementSystem/bin/
-BookManagementSystem/obj/
+BookManagementSystem/BookManagementSystem/bin/
+BookManagementSystem/BookManagementSystem/obj/
 BookManagementSystem/BookManagementSystem.csproj
 LibraryManagementSystem.sln
 BookManagementSystem.sln

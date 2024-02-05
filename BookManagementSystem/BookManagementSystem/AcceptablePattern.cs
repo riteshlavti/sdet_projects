@@ -1,4 +1,3 @@
-using System.Formats.Asn1;
 using System.Text.RegularExpressions;
 namespace BookManagementSystem
 {
@@ -31,7 +30,7 @@ namespace BookManagementSystem
             }
             else
             {
-                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Invalid input!, Try again");
                 return false;
             }
         }
@@ -49,7 +48,7 @@ namespace BookManagementSystem
             }
             else
             {
-                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Invalid input!, Try again");
                 return false;
             }
         }
@@ -67,7 +66,7 @@ namespace BookManagementSystem
             }
             else
             {
-                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Invalid input!, Try again");
                 return false;
             }
         }
@@ -85,7 +84,7 @@ namespace BookManagementSystem
             }
             else
             {
-                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Invalid input!, Try again");
                 return false;
             }
         }
@@ -103,7 +102,7 @@ namespace BookManagementSystem
             }
             else
             {
-                Console.WriteLine("Invalid input!");
+                Console.WriteLine("Invalid input!, Try again");
                 return false;
             }
         }

@@ -1,5 +1,9 @@
 ﻿namespace BookManagementSystem;
-public class BookOperation
+
+/// <summary>
+/// This class is used for starting app, returning book, and displaying all books.
+/// </summary>
+public class BookManager
 {
     protected static List<BookDetails> bookList = new List<BookDetails>();
 
@@ -19,26 +23,21 @@ public class BookOperation
                         6. Exit
                         """);
 
-        string bookOperationString = Console.ReadLine();
-        if (!Patterns.CheckOptionsInput(bookOperationString))
-        {
-            return;
-        }
-        int bookOperation = Convert.ToInt32(bookOperationString);
+        int bookOperation = UserInput.InputMenuOption();
 
         switch (bookOperation)
         {
             case 1:
-                AddBookDetails.AddBook();
+                BookOperation.AddBook();
                 break;
             case 2:
-                SearchAndDeleteBook.DeleteBook();
+                BookOperation.DeleteBook();
                 break;
             case 3:
-                UpdateBookDetails.UpdateBook();
+                BookOperation.UpdateBook();
                 break;
             case 4:
-                SearchAndDeleteBook.SearchBook();
+                BookOperation.SearchBook();
                 break;
             case 5:
                 DisplayAllBooks();
