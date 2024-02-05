@@ -72,7 +72,7 @@ namespace BookManagementSystem
         /// <returns>It returns the book ID if it is valid.</returns>
         public static int InputBookID()
         {
-            Console.Write("Enter the book Id- ");
+            Console.Write("Enter the book ID- ");
             string bookIdString = Console.ReadLine();
             if (Patterns.CheckBookIdPattern(bookIdString))
             {

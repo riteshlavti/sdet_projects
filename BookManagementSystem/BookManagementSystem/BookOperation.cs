@@ -21,11 +21,11 @@ public class BookOperation : BookManager
         Console.WriteLine(bookTypeMenu);
         int bookType = UserInput.InputMenuOption();
 
+        int bookId = UserInput.InputBookID();
         string title = UserInput.InputBookTitle();
         string author = UserInput.InputBookAuthor();
         string publication = UserInput.InputBookPublication();
         DateTime publicationYear = UserInput.InputBookPublicationYear();
-        int bookId = UserInput.InputBookID();
 
         if (bookType == (int)BookType.FictionalBook)
         {
@@ -89,7 +89,7 @@ public class BookOperation : BookManager
         Console.WriteLine("---UPDATE BOOK DETAIL---");
         Console.Write("Enter the book Id - ");
 
-        int bookId = Convert.ToInt32(Console.ReadLine());
+        int bookId = UserInput.InputBookID();
         BookDetails book = ReturnBookByID(bookId);
         if (book == null)
         {

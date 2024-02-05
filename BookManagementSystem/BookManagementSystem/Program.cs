@@ -1,7 +1,7 @@
 ﻿using System;
 namespace BookManagementSystem
 {
-    class BookManagemntProgram
+    class BookManagementProgram
     {
         static void Main()
         {
