@@ -6,6 +6,12 @@
 # Node artifact files
 node_modules/
 dist/
+BookManagementSystem/
+FileHandlingProject/bin
+FileHandlingProject/obj
+FileHandlingProject.csproj
+
+
 
 # Compiled Java class files
 *.class

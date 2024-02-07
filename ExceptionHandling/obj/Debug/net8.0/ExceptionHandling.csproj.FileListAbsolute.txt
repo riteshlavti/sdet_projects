@@ -1,0 +1,15 @@
+D:\Training\sdet_riteshlavti\ExceptionHandling\bin\Debug\net8.0\ExceptionHandling.exe
+D:\Training\sdet_riteshlavti\ExceptionHandling\bin\Debug\net8.0\ExceptionHandling.deps.json
+D:\Training\sdet_riteshlavti\ExceptionHandling\bin\Debug\net8.0\ExceptionHandling.runtimeconfig.json
+D:\Training\sdet_riteshlavti\ExceptionHandling\bin\Debug\net8.0\ExceptionHandling.dll
+D:\Training\sdet_riteshlavti\ExceptionHandling\bin\Debug\net8.0\ExceptionHandling.pdb
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.GeneratedMSBuildEditorConfig.editorconfig
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.AssemblyInfoInputs.cache
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.AssemblyInfo.cs
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.csproj.CoreCompileInputs.cache
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.sourcelink.json
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.dll
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\refint\ExceptionHandling.dll
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.pdb
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ExceptionHandling.genruntimeconfig.cache
+D:\Training\sdet_riteshlavti\ExceptionHandling\obj\Debug\net8.0\ref\ExceptionHandling.dll
