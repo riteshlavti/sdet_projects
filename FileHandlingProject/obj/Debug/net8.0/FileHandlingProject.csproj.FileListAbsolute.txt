@@ -1,0 +1,15 @@
+D:\Training\sdet_riteshlavti\FileHandlingProject\bin\Debug\net8.0\FileHandlingProject.exe
+D:\Training\sdet_riteshlavti\FileHandlingProject\bin\Debug\net8.0\FileHandlingProject.deps.json
+D:\Training\sdet_riteshlavti\FileHandlingProject\bin\Debug\net8.0\FileHandlingProject.runtimeconfig.json
+D:\Training\sdet_riteshlavti\FileHandlingProject\bin\Debug\net8.0\FileHandlingProject.dll
+D:\Training\sdet_riteshlavti\FileHandlingProject\bin\Debug\net8.0\FileHandlingProject.pdb
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.GeneratedMSBuildEditorConfig.editorconfig
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.AssemblyInfoInputs.cache
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.AssemblyInfo.cs
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.csproj.CoreCompileInputs.cache
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.sourcelink.json
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.dll
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\refint\FileHandlingProject.dll
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.pdb
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\FileHandlingProject.genruntimeconfig.cache
+D:\Training\sdet_riteshlavti\FileHandlingProject\obj\Debug\net8.0\ref\FileHandlingProject.dll
