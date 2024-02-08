@@ -1,6 +1,6 @@
 ﻿namespace FileHandlingProject
 {
-    public class Program
+    public class FileManager
     {
         static void Main()
         {

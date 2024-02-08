@@ -1,7 +1,9 @@
 ﻿using System.Text.RegularExpressions;
-
 namespace FileHandlingProject;
 
+/// <summary>
+/// This class is used for defining patters and pattern matching using Regex.
+/// </summary>
 public class AcceptablePattern
 {
     const string optionsPattern = @"\d{1}$";
@@ -27,6 +29,12 @@ public class AcceptablePattern
             return false;
         }
     }
+
+    /// <summary>
+    /// This method validates the choices input matches the pattern or not.
+    /// </summary>
+    /// <param name="choice">This is the input taken by user</param>
+    /// <returns>It returns true or false</returns>
     public static bool CheckChoicesInput(string choice)
     {
         if(choiceOptionPatternRegex.IsMatch(choice))

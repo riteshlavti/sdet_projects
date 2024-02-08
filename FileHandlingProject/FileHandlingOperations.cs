@@ -1,7 +1,13 @@
 ﻿namespace FileHandlingProject;
 
+/// <summary>
+/// This class contains basic file operations create file, append file, delete file, read file.
+/// </summary>
 public class FileHandlingOperations
 {
+    /// <summary>
+    /// This static method is used to create and add text to file.
+    /// </summary>
     public static void CreateFile()
     {
         try
@@ -11,7 +17,9 @@ public class FileHandlingOperations
             {
                 file.Close();
             }           
+
             Console.WriteLine("File created successfully! Do you want add some text to it [y/n] - ");
+
             string choice = InputDetails.ChoiceOption();
             if(choice == "y")
             {
@@ -31,6 +39,9 @@ public class FileHandlingOperations
         }
     }
 
+    /// <summary>
+    /// This static method is used to delete file.
+    /// </summary>
     public static void DeleteFile()
     {
         try
@@ -46,6 +57,9 @@ public class FileHandlingOperations
         }
     }
 
+    /// <summary>
+    /// This static method is used to read file.
+    /// </summary>
     public static void ReadFile()
     {
         try
@@ -60,6 +74,9 @@ public class FileHandlingOperations
         }
     }
 
+    /// <summary>
+    /// This static method is used to append text to file.
+    /// </summary>
     public static void AppendFile()
     {
         try
@@ -75,6 +92,9 @@ public class FileHandlingOperations
         }
     }
 
+    /// <summary>
+    /// This static method is used to count number of lines in a file.
+    /// </summary>
     public static void CountLines()
     {
         try
@@ -89,6 +109,9 @@ public class FileHandlingOperations
         }
     }
 
+    /// <summary>
+    /// This static method is used to display file.
+    /// </summary>
     public static void DisplayFile()
     {
         string path = FileHandler.InputAndReturnPath();
