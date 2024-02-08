@@ -3,7 +3,7 @@
     /// <summary>
     /// This class is main class of Employee Management System and contains Main method.
     /// </summary>
-    public class Program
+    public class EmployeeManagement
     {
         static void Main()
         {
