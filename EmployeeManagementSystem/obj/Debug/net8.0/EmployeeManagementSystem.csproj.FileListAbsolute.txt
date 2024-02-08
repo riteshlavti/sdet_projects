@@ -1,0 +1,15 @@
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\bin\Debug\net8.0\EmployeeManagementSystem.exe
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\bin\Debug\net8.0\EmployeeManagementSystem.deps.json
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\bin\Debug\net8.0\EmployeeManagementSystem.runtimeconfig.json
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\bin\Debug\net8.0\EmployeeManagementSystem.dll
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\bin\Debug\net8.0\EmployeeManagementSystem.pdb
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.AssemblyInfoInputs.cache
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.AssemblyInfo.cs
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.csproj.CoreCompileInputs.cache
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.sourcelink.json
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.dll
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\refint\EmployeeManagementSystem.dll
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.pdb
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\EmployeeManagementSystem.genruntimeconfig.cache
+D:\Training\sdet_riteshlavti\EmployeeManagementSystem\obj\Debug\net8.0\ref\EmployeeManagementSystem.dll
