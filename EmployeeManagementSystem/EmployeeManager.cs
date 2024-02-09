@@ -1,20 +1,18 @@
-﻿using System.Security.Cryptography.X509Certificates;
-namespace EmployeeManagementSystem;
-
-/// <summary>
-/// This class is used for defining start method and initializing the data structure for 
-/// storing employee details.
-/// </summary>
-public class EmployeeManager
+﻿namespace EmployeeManagementSystem
 {
-    protected static Dictionary<int, EmployeeDetails> employeeDictionary = new Dictionary<int, EmployeeDetails>();
-
     /// <summary>
-    /// This static method is used for defining start application.
+    /// Contain StartApplication method and data structure used for storing Employee Details.
     /// </summary>
-    public static void StartApplication()
+    public class EmployeeManager
     {
-        Console.WriteLine("""
+        protected static Dictionary<int, EmployeeDetails> employeeDictionary = new Dictionary<int, EmployeeDetails>();
+
+        /// <summary>
+        /// Used for defining start application.
+        /// </summary>
+        public static void StartApplication()
+        {
+            Console.WriteLine("""
 
                             -----Employee Manager-----
                             
@@ -25,29 +23,30 @@ public class EmployeeManager
                             4. Delete Employee details.
                             5. Exit.
                             """);
-        int menuOption = EmployeeDetailsInput.InputMenuOption();
+            int userChoice = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.optionsPattern));
 
-        switch (menuOption)
-        {
-            case 1: 
-                EmployeeOperation.AddEmployee();
-                break;
-            case 2:
-                EmployeeOperation.EditEmployee();
-                break;
-            case 3:
-                EmployeeOperation.ReadEmployee();
-                break;
-            case 4:
-                EmployeeOperation.RemoveEmployee();
-                break;
-            case 5:
-                Environment.Exit(0);
-                break;
-            default:
-                Console.WriteLine("Invalid choice! Select correct option.");
-                break;
+            switch (userChoice)
+            {
+                case 1:
+                    EmployeeOperation.AddEmployee();
+                    break;
+                case 2:
+                    EmployeeOperation.EditEmployee();
+                    break;
+                case 3:
+                    EmployeeOperation.ReadEmployee();
+                    break;
+                case 4:
+                    EmployeeOperation.RemoveEmployee();
+                    break;
+                case 5:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice! Select correct option.");
+                    break;
+            }
+            StartApplication();
         }
-        StartApplication();
     }
 }
