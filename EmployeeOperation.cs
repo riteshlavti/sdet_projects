@@ -1,131 +1,159 @@
-﻿namespace EmployeeManagementSystem;
+﻿using System.Linq.Expressions;
 
-/// <summary>
-/// This class is used for defining basic operations like add, read, remove and edit employee.
-/// </summary>
-public class EmployeeOperation : EmployeeManager
+namespace EmployeeManagementSystem
 {
     /// <summary>
-    /// This static method is used for adding employee to the list.
+    /// Contain methods add, read, remove and edit employee.
     /// </summary>
-    public static void AddEmployee()
+    public class EmployeeOperation : EmployeeManager
     {
-        Console.WriteLine("---ADDING A EMPLOYEE---");
-
-        int employeeID = EmployeeDetailsInput.InputID();
-        string employeeName = EmployeeDetailsInput.InputName();
-        string employeeTechnology = EmployeeDetailsInput.InputTechnology();
-        DateOnly employeeJoiningDate = EmployeeDetailsInput.InputJoiningDate();
-
-        EmployeeDetails employee = new EmployeeDetails(employeeID, employeeName, employeeTechnology, employeeJoiningDate);
-        employeeDictionary.Add(employeeID, employee);
-
-        Console.WriteLine("{0} added succesfully! ", employeeName);
-    }
-
-    /// <summary>
-    /// This static method is used for reading employee details from employee list.
-    /// </summary>
-    public static void ReadEmployee()
-    {
-        Console.WriteLine("---DISPLAY EMPLOYEE DETAILS---");
-        int employeeID = EmployeeDetailsInput.InputID();
-        
-        try
+        /// <summary>
+        /// Used for adding employee to the list.
+        /// </summary>
+        public static void AddEmployee()
         {
-            if (!employeeDictionary.ContainsKey(employeeID))
+            try
             {
-                throw new KeyNotFoundException("Employee doesn't exist!");
+                Console.WriteLine("---ADDING A EMPLOYEE---");
+
+                Console.Write("Enter employee ID - ");
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.employeeIdPattern));
+
+                Console.Write("Enter employee name - ");
+                string employeeName = EmployeeDetailsInput.InputString(EmployeeRegexPattern.namePattern);
+
+                Console.Write("Enter employee technology - ");
+                string employeeTechnology = EmployeeDetailsInput.InputString(EmployeeRegexPattern.technologyPattern);
+
+                DateOnly employeeJoiningDate = EmployeeDetailsInput.inputJoiningDate();
+
+                EmployeeDetails employee = new EmployeeDetails(employeeID, employeeName, employeeTechnology, employeeJoiningDate);
+                employeeDictionary.Add(employeeID, employee);
+
+                Console.WriteLine("{0} added succesfully! ", employeeName);
             }
-            else
+            catch (Exception error)
             {
-                Console.WriteLine("""
+                Console.WriteLine(error.Message);
+            }
+        }
+
+        /// <summary>
+        /// Used for reading employee details from employee list.
+        /// </summary>
+        public static void ReadEmployee()
+        {
+            Console.WriteLine("---DISPLAY EMPLOYEE DETAILS---");
+
+            try
+            {
+                Console.Write("Enter employee id - ");
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.idPattern));
+
+                if (!employeeDictionary.ContainsKey(employeeID))
+                {
+                    throw new KeyNotFoundException("Employee doesn't exist!");
+                }
+                else
+                {
+                    Console.WriteLine("""
                 Employee details are - 
                 Name - {0},
                 Technology - {1},
                 Joining Date - {2}
-                """, 
-                employeeDictionary[employeeID].EmployeeName,
-                employeeDictionary[employeeID].EmployeeTechnology, 
-                employeeDictionary[employeeID].EmployeeJoiningDate);
+                """,
+                    employeeDictionary[employeeID].EmployeeName,
+                    employeeDictionary[employeeID].EmployeeTechnology,
+                    employeeDictionary[employeeID].EmployeeJoiningDate);
+                }
             }
-        }
-        catch (Exception error)
-        {
-            Console.WriteLine(error.Message);
-        }
-    }
-
-    /// <summary>
-    /// This static method is used for removing employee from employee list.
-    /// </summary>
-    public static void RemoveEmployee()
-    {
-        Console.WriteLine("---REMOVE A EMPLOYEE---");
-
-        if (employeeDictionary.Count == 0)
-        {
-            Console.WriteLine("There are 0 employees in the company!");
-            return;
-        }
-
-        int employeeID = EmployeeDetailsInput.InputID();
-
-        try
-        {
-            if (!employeeDictionary.Remove(employeeID))
+            catch (Exception error)
             {
-                throw new KeyNotFoundException("Employee doesn't exist!");
+                Console.WriteLine(error.Message);
             }
-            else
+        }
+
+        /// <summary>
+        /// Used for removing employee from employee list.
+        /// </summary>
+        public static void RemoveEmployee()
+        {
+            Console.WriteLine("---REMOVE A EMPLOYEE---");
+
+            if (employeeDictionary.Count == 0)
             {
-                Console.WriteLine("Employee deleted successfully!");
+                Console.Write("There are 0 employees in the company!");
+                return;
+            }
+
+            try
+            {
+                Console.Write("Enter employee id - ");
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.idPattern));
+
+                if (!employeeDictionary.Remove(employeeID))
+                {
+                    throw new KeyNotFoundException("Employee doesn't exist!");
+                }
+                else
+                {
+                    Console.WriteLine("Employee deleted successfully!");
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
             }
         }
-        catch (Exception error)
+
+        /// <summary>
+        /// Used to edit the employee details.
+        /// </summary>
+        public static void EditEmployee()
         {
-            Console.WriteLine(error);
-        }
-    }
+            Console.WriteLine("---EDIT EMPLOYEE DETAIL---");
 
-    /// <summary>
-    /// This static method is used to edit the employee details.
-    /// </summary>
-    public static void EditEmployee()
-    {
-        Console.WriteLine("---EDIT EMPLOYEE DETAIL---");
+            Console.Write("Enter employee id - ");
+            try
+            {
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.idPattern));
 
-        int employeeID = EmployeeDetailsInput.InputID();
-        if (employeeDictionary.ContainsKey(employeeID) == false)
-        {
-            Console.WriteLine("Employee doesn't exist.");
-            return;
-        }
+                if (employeeDictionary.ContainsKey(employeeID) == false)
+                {
+                    Console.WriteLine("Employee doesn't exist.");
+                    return;
+                }
 
-        string menu = """
+                string menu = """
                         Enter the option which you want to update -
                         1. Name
                         2. Technology
                         3. Joining Date
                         """;
-        Console.WriteLine(menu);
-        int menuOption = EmployeeDetailsInput.InputMenuOption();
+                Console.WriteLine(menu);
+                int userChoice = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.optionsPattern));
 
-        if (menuOption == 1)
-        {
-            employeeDictionary[employeeID].EmployeeName = EmployeeDetailsInput.InputName();
-            Console.WriteLine("Employee name updated successfully!");
-        }
-        else if (menuOption == 2)
-        {
-            employeeDictionary[employeeID].EmployeeTechnology = EmployeeDetailsInput.InputTechnology();
-            Console.WriteLine("Employee technology updated successfully!");
+                if (userChoice == 1)
+                {
+                    employeeDictionary[employeeID].EmployeeName = EmployeeDetailsInput.InputString(EmployeeRegexPattern.namePattern);
+                    Console.WriteLine("Employee name updated successfully!");
+                }
+                else if (userChoice == 2)
+                {
+                    employeeDictionary[employeeID].EmployeeTechnology = EmployeeDetailsInput.InputString(EmployeeRegexPattern.technologyPattern);
+                    Console.WriteLine("Employee technology updated successfully!");
 
-        }
-        else if (menuOption == 3)
-        {
-            employeeDictionary[employeeID].EmployeeJoiningDate = EmployeeDetailsInput.InputJoiningDate();
-            Console.WriteLine("Employee joining date updated successfully!");
+                }
+                else if (userChoice == 3)
+                {
+                    employeeDictionary[employeeID].EmployeeJoiningDate = EmployeeDetailsInput.inputJoiningDate();
+                    Console.WriteLine("Employee joining date updated successfully!");
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+            }
         }
     }
 }

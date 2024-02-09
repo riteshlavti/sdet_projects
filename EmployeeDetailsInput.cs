@@ -1,88 +1,70 @@
-﻿namespace EmployeeManagementSystem;
+﻿using System.Text.RegularExpressions;
 
-/// <summary>
-/// This class is defining methods to take employee details input from user.
-/// </summary>
-public class EmployeeDetailsInput
+namespace EmployeeManagementSystem
 {
     /// <summary>
-    /// This function is taking name as input from user.   
+    /// Contain methods to take employee details input from user.
     /// </summary>
-    /// <returns> Return string.</returns>
-    public static string InputName()
+    public  class EmployeeDetailsInput
     {
-        Console.Write("Enter the employee name - ");
-        string employeeName = Console.ReadLine();
-        if (AcceptablePattern.CheckNameInput(employeeName))
+        /// <summary>
+        /// Returns input string if it is valid else recall itself for 4 times if user give invalid input.
+        /// </summary>
+        /// <param name="regexPattern">Give input as regexPattern</param>
+        /// <param name="allowedAttempts">It is the number of times a user can try if invalid input is given.</param>
+        /// <returns></returns>
+        /// <exception cref="No attempts left"></exception>
+        public static string InputString(string regexPattern, int allowedAttempts = 4)
         {
-            return employeeName;
-        }
-        return InputName();
-    }
-
-    /// <summary>
-    /// This function is taking id as input from user.   
-    /// </summary>
-    /// <returns> Return int.</returns>
-    public static int InputID()
-    {
-        Console.Write("Enter the employee ID - ");
-        string employeeID = Console.ReadLine();
-        if (AcceptablePattern.CheckOptionsInput(employeeID))
-        {
-            return Convert.ToInt32(employeeID);
-        }
-        return InputID();
-    }
-
-    /// <summary>
-    /// This function is taking technology as input from user.   
-    /// </summary>
-    /// <returns> Return string.</returns>
-    public static string InputTechnology()
-    {
-        Console.Write("Enter the employee technology - ");
-        string employeeName = Console.ReadLine();
-
-        return employeeName;
-    }
-
-    /// <summary>
-    /// This function is taking Date from user as string in particular format.
-    /// </summary>
-    /// <returns>Returns DateOnly.</returns>
-    public static DateOnly InputJoiningDate()
-    {
-        Console.Write("Enter the joining date [yyyy-mm-dd] - ");
-        string employeeJoiningDateString = Console.ReadLine();
-
-        try
-        {
-            if (AcceptablePattern.CheckDateInput(employeeJoiningDateString))
+            if (allowedAttempts == 0)
             {
-                DateOnly dateOnly = DateOnly.Parse(employeeJoiningDateString);
-                return dateOnly;
+                throw new Exception("No attempts left! ");
+            }
+            string userInput = Console.ReadLine();
+            if (Regex.IsMatch(userInput, regexPattern))
+            {
+                return userInput;
+            }
+            if(allowedAttempts>1)
+            {
+                Console.WriteLine("Try again, invalid input! {0} attempts left", allowedAttempts-1);
+            }
+            return InputString(regexPattern, --allowedAttempts);
+        }
+
+        /// <summary>
+        /// Used for taking date input as string and then converts and return as DateOnly if it is valid else throws exception.
+        /// </summary>
+        /// <param name="allowedCounts">It is the number of times a user can try if invalid input is given.</param>
+        /// <returns>Returns date if it is valid else recall itself untill user have attempts left.</returns>
+        /// <exception cref="No more attempts left"></exception>
+        /// <exception cref="Invalid Date Exception"></exception>
+        public static DateOnly inputJoiningDate(int allowedCounts = 4)
+        {
+            if(allowedCounts==0)
+            {
+                throw new Exception("No more attempts left.");
+            }
+            Console.Write("Enter employee joining date [yyyy-mm-dd] - ");
+            string employeeJoiningDate = Console.ReadLine();
+            
+            try
+            {
+                if(Regex.IsMatch(employeeJoiningDate,EmployeeRegexPattern.joiningDatePattern))
+                {
+                    DateOnly joiningDate = DateOnly.Parse(employeeJoiningDate);
+                    return joiningDate;
+                }
+                else 
+                {
+                    throw new Exception("Invalid format!");
+                }      
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine($"Error - {error.Message}. {allowedCounts} attempts left! Try again");
+                return inputJoiningDate(allowedCounts-1);
             }
         }
-        catch (Exception error)
-        {
-            Console.WriteLine("Error - {0}", error);
-        }
-
-        return InputJoiningDate();
-    }
-
-    /// <summary>
-    /// This function is taking menu option as input from user.
-    /// </summary>
-    /// <returns>Returns int value.</returns>
-    public static int InputMenuOption()
-    {
-        string menuOptionString = Console.ReadLine();
-        if (AcceptablePattern.CheckOptionsInput(menuOptionString))
-        {
-            return Convert.ToInt32(menuOptionString);
-        }
-        return InputMenuOption();
     }
 }
