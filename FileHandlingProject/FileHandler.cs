@@ -1,12 +1,12 @@
 ﻿namespace FileHandlingProject;
 
 /// <summary>
-/// This class is used for defining stat application method and for taking and returning file path.
+/// Used for defining start application method and for taking and returning file path.
 /// </summary>
 public class FileHandler
 {
     /// <summary>
-    /// This static method is used for starting application.
+    /// Used for starting application.
     /// </summary>
     public static void StartApplication()
     {
@@ -22,9 +22,17 @@ public class FileHandler
                             7. Exit.
                             """);
 
-        int menuOption = InputDetails.InputMenuOption();
-
-        switch (menuOption)
+        int userChoice;
+        try
+        {
+            userChoice = Convert.ToInt32(InputFileDetails.InputString(FileHandlingRegexPattern.userChoicePattern));
+        }
+        catch(Exception error)
+        {
+            Console.WriteLine(error.Message);
+            return;
+        }
+        switch (userChoice)
         {
             case 1:
                 FileHandlingOperations.CreateFile();
@@ -52,16 +60,5 @@ public class FileHandler
                 break;
         }
         StartApplication();
-    }
-
-    /// <summary>
-    /// This static method is used for taking path from user and returning path.
-    /// </summary>
-    /// <returns>It returns path as string.</returns>
-    public static string InputAndReturnPath()
-    {
-        Console.WriteLine("Enter the path for file - ");
-        string path = Console.ReadLine();
-        return path;
     }
 }
