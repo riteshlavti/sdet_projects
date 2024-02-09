@@ -23,6 +23,10 @@ class Program
         // Create an object to serialize
         Person person = new Person { Name = "John", Age = 30 };
 
+        // JSON serialization using Syste.Text.Json
+        string jsonString = JsonSerializer.Serialize(person);
+        StreamWriter obj = new StreamWriter("person.json");
+
         // Serialize the object to JSON
         string json = JsonConvert.SerializeObject(person);
         obj3.WriteLine(json);
