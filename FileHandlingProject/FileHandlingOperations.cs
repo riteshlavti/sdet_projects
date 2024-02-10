@@ -45,7 +45,7 @@ public class FileHandlingOperations
         {
             Console.WriteLine("Enter the path of file - ");
             string path = InputFileDetails.InputString();
-            
+
             File.Delete(path);
             Console.WriteLine("File deleted successfully.");
         }
