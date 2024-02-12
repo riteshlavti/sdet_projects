@@ -7,11 +7,11 @@ namespace EmployeeManagementSystem
     /// </summary>
     public static class EmployeeRegexPattern
     {
-        public const string OPTIONSPATTERN = @"\d{1}$";
-        public const string IDPATTERN = @"[0-9]+";
-        public const string NAMEPATTERN = @"[A-za-z]+$";
-        public const string TECHNOLOGYPATTERN = @".+";
-        public const string EMPLOYEEPATTERN = @"[0-9]+$";
-        public const string JOININGDATEPATTERN = @"\d{4}-\d{2}-\d{2}";
+        public const string OPTIONS_PATTERN = @"\d{1}$";
+        public const string ID_PATTERN = @"[0-9]+";
+        public const string NAME_PATTERN = @"[A-za-z]+$";
+        public const string TECHNOLOGY_PATTERN = @".+";
+        public const string EMPLOYEE_ID_PATTERN = @"[0-9]+$";
+        public const string JOINING_DATE_PATTERN = @"\d{4}-\d{2}-\d{2}";
     }
 }

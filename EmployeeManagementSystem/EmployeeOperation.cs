@@ -16,14 +16,14 @@ namespace EmployeeManagementSystem
             {
                 Console.WriteLine("---ADDING A EMPLOYEE---");
 
-                Console.Write("Enter employee ID [Integer ex - 21] - ");
-                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.employeeIdPattern));
+                Console.Write("Enter employee ID [(Integer) ex - 21] - ");
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.EMPLOYEE_ID_PATTERN));
 
                 Console.Write("Enter employee name [Ex- John Doe] - ");
-                string employeeName = EmployeeDetailsInput.InputString(EmployeeRegexPattern.namePattern);
+                string employeeName = EmployeeDetailsInput.InputString(EmployeeRegexPattern.NAME_PATTERN);
 
                 Console.Write("Enter employee technology [Ex- .NET] - ");
-                string employeeTechnology = EmployeeDetailsInput.InputString(EmployeeRegexPattern.technologyPattern);
+                string employeeTechnology = EmployeeDetailsInput.InputString(EmployeeRegexPattern.TECHNOLOGY_PATTERN);
 
                 DateOnly employeeJoiningDate = EmployeeDetailsInput.inputJoiningDate();
 
@@ -48,7 +48,7 @@ namespace EmployeeManagementSystem
             try
             {
                 Console.Write("Enter employee id - ");
-                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.idPattern));
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.EMPLOYEE_ID_PATTERN));
 
                 if (!employeeDictionary.ContainsKey(employeeID))
                 {
@@ -89,7 +89,7 @@ namespace EmployeeManagementSystem
             try
             {
                 Console.Write("Enter employee id - ");
-                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.idPattern));
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.EMPLOYEE_ID_PATTERN));
 
                 if (!employeeDictionary.Remove(employeeID))
                 {
@@ -116,7 +116,7 @@ namespace EmployeeManagementSystem
             Console.Write("Enter employee id - ");
             try
             {
-                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.idPattern));
+                int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.EMPLOYEE_ID_PATTERN));
 
                 if (employeeDictionary.ContainsKey(employeeID) == false)
                 {
@@ -131,16 +131,16 @@ namespace EmployeeManagementSystem
                         3. Joining Date
                         """;
                 Console.WriteLine(menu);
-                int userChoice = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.optionsPattern));
+                int userChoice = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.OPTIONS_PATTERN));
 
                 if (userChoice == 1)
                 {
-                    employeeDictionary[employeeID].EmployeeName = EmployeeDetailsInput.InputString(EmployeeRegexPattern.namePattern);
+                    employeeDictionary[employeeID].EmployeeName = EmployeeDetailsInput.InputString(EmployeeRegexPattern.NAME_PATTERN);
                     Console.WriteLine("Employee name updated successfully!");
                 }
                 else if (userChoice == 2)
                 {
-                    employeeDictionary[employeeID].EmployeeTechnology = EmployeeDetailsInput.InputString(EmployeeRegexPattern.technologyPattern);
+                    employeeDictionary[employeeID].EmployeeTechnology = EmployeeDetailsInput.InputString(EmployeeRegexPattern.TECHNOLOGY_PATTERN);
                     Console.WriteLine("Employee technology updated successfully!");
 
                 }

@@ -23,7 +23,7 @@
                             4. Delete Employee details.
                             5. Exit.
                             """);
-            int userChoice = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.optionsPattern));
+            int userChoice = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.OPTIONS_PATTERN));
 
             switch (userChoice)
             {

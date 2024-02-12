@@ -50,7 +50,7 @@ namespace EmployeeManagementSystem
             
             try
             {
-                if(Regex.IsMatch(employeeJoiningDate,EmployeeRegexPattern.joiningDatePattern))
+                if(Regex.IsMatch(employeeJoiningDate,EmployeeRegexPattern.JOINING_DATE_PATTERN))
                 {
                     DateOnly joiningDate = DateOnly.Parse(employeeJoiningDate);
                     return joiningDate;
