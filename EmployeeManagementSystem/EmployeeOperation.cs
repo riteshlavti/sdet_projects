@@ -16,13 +16,13 @@ namespace EmployeeManagementSystem
             {
                 Console.WriteLine("---ADDING A EMPLOYEE---");
 
-                Console.Write("Enter employee ID - ");
+                Console.Write("Enter employee ID [Integer ex - 21] - ");
                 int employeeID = Convert.ToInt32(EmployeeDetailsInput.InputString(EmployeeRegexPattern.employeeIdPattern));
 
-                Console.Write("Enter employee name - ");
+                Console.Write("Enter employee name [Ex- John Doe] - ");
                 string employeeName = EmployeeDetailsInput.InputString(EmployeeRegexPattern.namePattern);
 
-                Console.Write("Enter employee technology - ");
+                Console.Write("Enter employee technology [Ex- .NET] - ");
                 string employeeTechnology = EmployeeDetailsInput.InputString(EmployeeRegexPattern.technologyPattern);
 
                 DateOnly employeeJoiningDate = EmployeeDetailsInput.inputJoiningDate();
