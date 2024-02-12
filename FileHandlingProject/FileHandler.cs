@@ -25,7 +25,7 @@ public class FileHandler
         int userChoice;
         try
         {
-            userChoice = Convert.ToInt32(InputFileDetails.InputString(FileHandlingRegexPattern.userChoicePattern));
+            userChoice = Convert.ToInt32(InputFileDetails.InputString(FileHandlingRegexPattern.USERCHOICEPATTERN));
         }
         catch(Exception error)
         {

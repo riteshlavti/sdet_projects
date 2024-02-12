@@ -22,8 +22,8 @@ public class FileHandlingOperations
 
             Console.WriteLine("File created successfully! Do you want add some text to it [y/n] - ");
 
-            string choice = InputFileDetails.InputString(FileHandlingRegexPattern.yesNoChoicePattern);
-            if (choice == "y")
+            string choice = InputFileDetails.InputString(FileHandlingRegexPattern.YESORNOCHOICEPATTERN);
+            if (choice == "y" || choice == "Y")
             {
                 Console.WriteLine("Enter the text which you want to write in the file- ");
                 File.WriteAllText(path, InputFileDetails.InputString());

@@ -5,6 +5,6 @@
 /// </summary>
 public class FileHandlingRegexPattern
 {
-    public const string userChoicePattern = @"\d{1}$";
-    public const string yesNoChoicePattern = @"[y]{1}|[n]{1}";
+    public const string USERCHOICEPATTERN = @"\d{1}$";
+    public const string YESORNOCHOICEPATTERN = @"[y|Y]{1}|[n|N]{1}";
 }
