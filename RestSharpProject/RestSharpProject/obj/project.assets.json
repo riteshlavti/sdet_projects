@@ -1171,11 +1171,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Training\\RestSharpProject\\RestSharpProject\\RestSharpProject.csproj",
+      "projectUniqueName": "D:\\Training\\sdet_riteshlavti\\RestSharpProject\\RestSharpProject\\RestSharpProject.csproj",
       "projectName": "RestSharpProject",
-      "projectPath": "D:\\Training\\RestSharpProject\\RestSharpProject\\RestSharpProject.csproj",
+      "projectPath": "D:\\Training\\sdet_riteshlavti\\RestSharpProject\\RestSharpProject\\RestSharpProject.csproj",
       "packagesPath": "C:\\Users\\ritesh.lavti\\.nuget\\packages\\",
-      "outputPath": "D:\\Training\\RestSharpProject\\RestSharpProject\\obj\\",
+      "outputPath": "D:\\Training\\sdet_riteshlavti\\RestSharpProject\\RestSharpProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ritesh.lavti\\AppData\\Roaming\\NuGet\\NuGet.Config"
