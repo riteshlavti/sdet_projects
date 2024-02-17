@@ -12,52 +12,72 @@ namespace RestSharpProject
             restClient = new RestClient("https://jsonplaceholder.typicode.com/");
         }
         [Test]
-        public void GetRequest()
+        public void GetRequest_OK()
         {
             RestRequest restRequest = new RestRequest("/posts/1", Method.Get);
             RestResponse restResponse = restClient.Execute(restRequest);
 
-            Assert.AreEqual(HttpStatusCode.OK, restResponse.StatusCode);
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void PostRequest()
+        public void GetRequest_NotFound()
+        {
+            RestRequest restRequest = new RestRequest("/post", Method.Get);
+            RestResponse restResponse = restClient.Execute(restRequest);
+
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
+        }
+
+        [Test]
+        public void PostRequest_OK()
         {
             RestRequest restRequest = new RestRequest("/posts/", Method.Post);
             restRequest.AddJsonBody(new { title = "post", body = "body", userId = 1 });
             RestResponse restResponse = restClient.Execute(restRequest);
 
-            Assert.AreEqual(restResponse.StatusCode, HttpStatusCode.Created);
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.Created));
         }
 
         [Test]
-        public void PutRequest()
+        public void PutRequest_OK()
         {
             RestRequest restRequest = new RestRequest("/posts/1", Method.Put);
             var data = new { id = 1, title = "post", body = "body", userId = 1 };
             restRequest.AddBody(data, ContentType.Json);
             RestResponse restResponse = restClient.Execute(restRequest);
 
-            Assert.AreEqual(restResponse.StatusCode, HttpStatusCode.OK);
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void PatchRequest()
+        public void PutRequest_InternalServerEror()
+        {
+            RestRequest restRequest = new RestRequest("/posts/101", Method.Put);
+            var data = new { id = 1, title = "post", body = "body", userId = 1 };
+            restRequest.AddBody(data, ContentType.Json);
+            RestResponse restResponse = restClient.Execute(restRequest);
+
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.InternalServerError));
+        }
+        
+        [Test]
+        public void PatchRequest_OK()
         {
             RestRequest restRequest = new RestRequest("/posts/1", Method.Patch);
             restRequest.AddJsonBody(new { title = "put" });
             RestResponse restResponse = restClient.Execute(restRequest);
 
-            Assert.AreEqual(restResponse.StatusCode, HttpStatusCode.OK);
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void DeleteRequest()
+        public void DeleteRequest_OK()
         {
             RestRequest restRequest = new RestRequest("/posts/1", Method.Delete);
             RestResponse restResponse = restClient.Execute(restRequest);
 
-            Assert.AreEqual(restResponse.StatusCode, HttpStatusCode.OK);
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }
