@@ -12,7 +12,7 @@ namespace RestSharpProject
         {
             restClient = new RestClient("https://jsonplaceholder.typicode.com/");
         }
-        
+
         [Test]
         public void GetRequest_OK()
         {
