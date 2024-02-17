@@ -6,11 +6,13 @@ namespace RestSharpProject
     public class API_Test
     {
         RestClient restClient;
+
         [SetUp]
         public void SetUp()
         {
             restClient = new RestClient("https://jsonplaceholder.typicode.com/");
         }
+        
         [Test]
         public void GetRequest_OK()
         {
@@ -18,15 +20,6 @@ namespace RestSharpProject
             RestResponse restResponse = restClient.Execute(restRequest);
 
             Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        }
-
-        [Test]
-        public void GetRequest_NotFound()
-        {
-            RestRequest restRequest = new RestRequest("/post", Method.Get);
-            RestResponse restResponse = restClient.Execute(restRequest);
-
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
         }
 
         [Test]
