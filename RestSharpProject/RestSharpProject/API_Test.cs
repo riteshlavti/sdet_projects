@@ -3,16 +3,19 @@ using RestSharp;
 
 namespace RestSharpProject
 {
+    [TestFixture]
     public class API_Test
     {
         RestClient restClient;
+
         [SetUp]
         public void SetUp()
         {
             restClient = new RestClient("https://jsonplaceholder.typicode.com/");
         }
+
         [Test]
-        public void GetRequest_OK()
+        public void GetRequest_SinglePost_OK()
         {
             RestRequest restRequest = new RestRequest("/posts/1", Method.Get);
             RestResponse restResponse = restClient.Execute(restRequest);
@@ -21,14 +24,14 @@ namespace RestSharpProject
         }
 
         [Test]
-        public void GetRequest_NotFound()
+        public void GetRequest_AllPost_OK()
         {
-            RestRequest restRequest = new RestRequest("/post", Method.Get);
+            RestRequest restRequest = new RestRequest("/posts", Method.Get);
             RestResponse restResponse = restClient.Execute(restRequest);
 
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
+            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
-
+        
         [Test]
         public void PostRequest_OK()
         {
@@ -42,8 +45,8 @@ namespace RestSharpProject
         [Test]
         public void PutRequest_OK()
         {
-            RestRequest restRequest = new RestRequest("/posts/1", Method.Put);
             var data = new { id = 1, title = "post", body = "body", userId = 1 };
+            RestRequest restRequest = new RestRequest("/posts/1", Method.Put);
             restRequest.AddBody(data, ContentType.Json);
             RestResponse restResponse = restClient.Execute(restRequest);
 
