@@ -8,6 +8,37 @@
 	"item": [
 		{
 			"name": "GET request - EmoloyeeByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response content type is present\", ()=>{\r",
+							"    pm.response.to.have.header(\"content-type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content type is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const responseData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"ID is a non-negative integer\", function () { \r",
+							"    pm.expect(responseData.data.id).to.be.a('number').and.to.be.at.least(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time below 3000\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -198,6 +229,40 @@
 		},
 		{
 			"name": "POST request - CreateEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response content type is present\", ()=>{",
+							"    pm.response.to.have.header(\"content-type\");",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const responseData = pm.response.json();",
+							"",
+							"pm.test(\"ID is a non-negative integer\", function () { ",
+							"    pm.expect(responseData.data.id).to.be.a('number').and.to.be.at.least(0);",
+							"});",
+							"",
+							"pm.test(\"Response time below 3000\",()=>{",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -229,6 +294,37 @@
 		},
 		{
 			"name": "GET request - All_Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response content type is present\", ()=>{\r",
+							"    pm.response.to.have.header(\"content-type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content type is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const responseData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"ID is a non-negative integer\", function () { \r",
+							"    pm.expect(responseData.data[0].id).to.be.a('number').and.to.be.at.least(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time below 3000\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -252,6 +348,37 @@
 		},
 		{
 			"name": "GET request - All_Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response content type is present\", ()=>{\r",
+							"    pm.response.to.have.header(\"content-type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content type is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const responseData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"ID is a non-negative integer\", function () { \r",
+							"    pm.expect(responseData.data.id).to.be.a('number').and.to.be.at.least(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time below 3000\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -274,6 +401,31 @@
 		},
 		{
 			"name": "DEL request - DeleteEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response content type is present\", ()=>{\r",
+							"    pm.response.to.have.header(\"content-type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content type is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time below 3000\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -297,6 +449,31 @@
 		},
 		{
 			"name": "PUT request - UpdateEmployee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response content type is present\", ()=>{\r",
+							"    pm.response.to.have.header(\"content-type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response content type is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time below 3000\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
