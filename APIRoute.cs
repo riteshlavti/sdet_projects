@@ -2,6 +2,6 @@
 {
     public class APIRoute
     {
-        public const string route = "/posts";
+        public const string ROUTE = "/posts";
     }
 }
