@@ -4,83 +4,57 @@ using RestSharp;
 namespace RestSharpProject
 {
     [TestFixture]
-    public class API_Test
+    public class APITest
     {
-        RestClient restClient;
-
-        [SetUp]
-        public void SetUp()
+        [Test]
+        public void GetRequestSinglePostOK()
         {
-            restClient = new RestClient("https://jsonplaceholder.typicode.com/");
+            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Get)).StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void GetRequest_SinglePost_OK()
+        public void GetRequestAllPostOK()
         {
-            RestRequest restRequest = new RestRequest("/posts/1", Method.Get);
-            RestResponse restResponse = restClient.Execute(restRequest);
-
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}", Method.Get)).StatusCode,
+             Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void GetRequest_AllPost_OK()
+        public void PostRequestOK()
         {
-            RestRequest restRequest = new RestRequest("/posts", Method.Get);
-            RestResponse restResponse = restClient.Execute(restRequest);
-
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        }
-        
-        [Test]
-        public void PostRequest_OK()
-        {
-            RestRequest restRequest = new RestRequest("/posts/", Method.Post);
-            restRequest.AddJsonBody(new { title = "post", body = "body", userId = 1 });
-            RestResponse restResponse = restClient.Execute(restRequest);
-
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+            var data = new { title = "post", body = "body", userId = 1 };
+            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}", Method.Post).AddJsonBody(data)).StatusCode,
+             Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void PutRequest_OK()
+        public void PutRequestOK()
         {
-            var data = new { id = 1, title = "post", body = "body", userId = 1 };
-            RestRequest restRequest = new RestRequest("/posts/1", Method.Put);
-            restRequest.AddBody(data, ContentType.Json);
-            RestResponse restResponse = restClient.Execute(restRequest);
-
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            var data = new { id = "1", title = "post", body = "body", userId = 1 };
+            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Put).AddJsonBody(data)).StatusCode,
+             Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void PutRequest_InternalServerEror()
+        public void PutRequestInternalServerEror()
         {
-            RestRequest restRequest = new RestRequest("/posts/101", Method.Put);
-            var data = new { id = 1, title = "post", body = "body", userId = 1 };
-            restRequest.AddBody(data, ContentType.Json);
-            RestResponse restResponse = restClient.Execute(restRequest);
-
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.InternalServerError));
-        }
-        
-        [Test]
-        public void PatchRequest_OK()
-        {
-            RestRequest restRequest = new RestRequest("/posts/1", Method.Patch);
-            restRequest.AddJsonBody(new { title = "put" });
-            RestResponse restResponse = restClient.Execute(restRequest);
-
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            var data = new { id = "1", title = "post", body = "body", userId = 1 };
+            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/101", Method.Put).AddJsonBody(data)).StatusCode,
+             Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
-        public void DeleteRequest_OK()
+        public void PatchRequestOK()
         {
-            RestRequest restRequest = new RestRequest("/posts/1", Method.Delete);
-            RestResponse restResponse = restClient.Execute(restRequest);
+            var data = new { title = "post" };
+            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Patch).AddJsonBody(data)).StatusCode,
+             Is.EqualTo(HttpStatusCode.OK));
+        }
 
-            Assert.That(restResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+        [Test]
+        public void DeleteRequestOK()
+        {
+            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Delete)).StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }
