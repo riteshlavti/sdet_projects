@@ -3,7 +3,7 @@ using NuGet.Frameworks;
 
 namespace BookManagementTesting
 {
-    public class BookOperation_UnitTest
+    public class BookOperationUnitTest
     {
         int bookType = 1, bookId = 1;
         string title = "xyz", author = "zzz", publication = "yyy";
@@ -18,21 +18,19 @@ namespace BookManagementTesting
         }
 
         [Test]
-        public void Test_AddBook()
+        public void TestAddBook()
         {
-            int count =1;
-            Assert.That(count, Is.EqualTo(BookManager.bookList.Count));
+            Assert.That(1, Is.EqualTo(BookManager.bookList.Count));
         }
 
         [Test]
-        public void Test_DeleteBook()
+        public void TestDeleteBook()
         {
-            bool result = BookOperation.DeleteBook(bookId);
-            Assert.IsTrue(result);
+            Assert.IsTrue(BookOperation.DeleteBook(bookId));
         }
 
         [Test]
-        public void Test_SearchBook()
+        public void TestSearchBook()
         {
             BookDetails testBook = BookOperation.SearchBook(bookId);
             Assert.That(testBook.Title, Is.EqualTo(book.Title));
@@ -41,36 +39,31 @@ namespace BookManagementTesting
         }
 
         [Test]
-        public void Test_UpdateBook_stringInput()
+        public void TestUpdateBookStringInput()
         {
-            int menuOption = 1;
             string input = "new_input";
-            BookOperation.UpdateBook(bookId, menuOption, input);
+            BookOperation.UpdateBook(bookId, 1, input);
             Assert.That(book.Title, Is.EqualTo(input));
         }
 
         [Test]
-        public void Test_UpdateBook_publicationDate()
+        public void TestUpdateBookPublicationDate()
         {
-            int menuOption = 1;
             DateTime testPublicationYear = new DateTime(2000, 01, 01);
-            BookOperation.UpdateBook(bookId, menuOption, testPublicationYear);
+            BookOperation.UpdateBook(bookId, 1, testPublicationYear);
             Assert.That(book.PublicationYear, Is.EqualTo(testPublicationYear));
         }
 
         [Test]
-        public void Test_ReturnBookById()
+        public void TestReturnBookById()
         {
-            BookDetails testBook = BookManager.ReturnBookByID(bookId);
-            Assert.That(book.BookId, Is.EqualTo(testBook.BookId));
+            Assert.That(book.BookId, Is.EqualTo(BookManager.ReturnBookByID(bookId).BookId));
         }
 
         [Test]
-        public void Test_ReturnBookById_InvalidIDCase()
+        public void TestReturnBookByIdInvalidIDCase()
         {
-            int testBookId = 2;
-            BookDetails testBook = BookManager.ReturnBookByID(testBookId);
-            Assert.IsNull(testBook);
+            Assert.IsNull(BookManager.ReturnBookByID(2));
         }
     }
 }
