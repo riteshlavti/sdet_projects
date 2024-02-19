@@ -9,13 +9,13 @@ namespace RestSharpProject
         [Test]
         public void GetRequestSinglePostOK()
         {
-            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Get)).StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(WrapperMethodRestSharp.Execute(new RestRequest($"{APIRoute.route}/1", Method.Get)).StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
         public void GetRequestAllPostOK()
         {
-            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}", Method.Get)).StatusCode,
+            Assert.That(WrapperMethodRestSharp.Execute(new RestRequest($"{APIRoute.route}", Method.Get)).StatusCode,
              Is.EqualTo(HttpStatusCode.OK));
         }
 
@@ -23,7 +23,7 @@ namespace RestSharpProject
         public void PostRequestOK()
         {
             var data = new { title = "post", body = "body", userId = 1 };
-            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}", Method.Post).AddJsonBody(data)).StatusCode,
+            Assert.That(WrapperMethodRestSharp.Execute(new RestRequest($"{APIRoute.route}", Method.Post).AddJsonBody(data)).StatusCode,
              Is.EqualTo(HttpStatusCode.OK));
         }
 
@@ -31,7 +31,7 @@ namespace RestSharpProject
         public void PutRequestOK()
         {
             var data = new { id = "1", title = "post", body = "body", userId = 1 };
-            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Put).AddJsonBody(data)).StatusCode,
+            Assert.That(WrapperMethodRestSharp.Execute(new RestRequest($"{APIRoute.route}/1", Method.Put).AddJsonBody(data)).StatusCode,
              Is.EqualTo(HttpStatusCode.OK));
         }
 
@@ -39,7 +39,7 @@ namespace RestSharpProject
         public void PutRequestInternalServerEror()
         {
             var data = new { id = "1", title = "post", body = "body", userId = 1 };
-            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/101", Method.Put).AddJsonBody(data)).StatusCode,
+            Assert.That(WrapperMethodRestSharp.Execute(new RestRequest($"{APIRoute.route}/101", Method.Put).AddJsonBody(data)).StatusCode,
              Is.EqualTo(HttpStatusCode.OK));
         }
 
@@ -47,14 +47,14 @@ namespace RestSharpProject
         public void PatchRequestOK()
         {
             var data = new { title = "post" };
-            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Patch).AddJsonBody(data)).StatusCode,
+            Assert.That(WrapperMethodRestSharp.Execute(new RestRequest($"{APIRoute.route}/1", Method.Patch).AddJsonBody(data)).StatusCode,
              Is.EqualTo(HttpStatusCode.OK));
         }
 
         [Test]
         public void DeleteRequestOK()
         {
-            Assert.That(WrapperClass.Execute(new RestRequest($"{Routes.route}/1", Method.Delete)).StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(WrapperMethodRestSharp.Execute(new RestRequest($"{APIRoute.route}/1", Method.Delete)).StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace RestSharpProject
 {
-    public class Routes
+    public class APIRoute
     {
         public const string route = "/posts";
     }

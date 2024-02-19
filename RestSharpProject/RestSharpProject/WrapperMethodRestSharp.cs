@@ -3,7 +3,7 @@ using RestSharp;
 
 namespace RestSharpProject
 {
-    public class WrapperClass
+    public class WrapperMethodRestSharp
     {
         public static RestResponse Execute(RestRequest restRequest)
         {
