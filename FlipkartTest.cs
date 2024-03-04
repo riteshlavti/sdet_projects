@@ -1,22 +1,22 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.DevTools.V120.IndexedDB;
 
 namespace FlipkartTest
 {
-    public class FlipkartTest
+    public class FlipkartSearchTest
     {
-        IWebDriver driver = new ChromeDriver();
+        IWebDriver driver;
 
         [SetUp]
         public void Setup()
         {
+            driver = new ChromeDriver();
             driver.Url = DataClass.BASE_URI;
         }
 
         [TestCase("poco")]
         [TestCase("iphone")]
-        public void Test(string searchValue)
+        public void SearchTest(string searchValue)
         {
             driver.FindElement(By.Name("q")).SendKeys(searchValue + Keys.Return);
             var list = driver.FindElements(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[2]/div[2]/following-sibling::div"));
