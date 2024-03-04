@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using System.Reflection;
 using System.ComponentModel;
+using OpenQA.Selenium.Support.UI;
 
 IWebDriver driver = new ChromeDriver();
 
@@ -38,6 +39,7 @@ driver.Close();
 driver.SwitchTo().Window(handles[0]);
 
 driver.FindElement(By.Name("q")).Click();
+
 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
 js.ExecuteScript("arguments[0].value = 'Fridge';", driver.FindElement(By.Name("q")));
 driver.FindElement(By.Name("q")).SendKeys(Keys.Return);
@@ -67,19 +69,21 @@ driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[1]/div[2
 driver.Close();
 
 //product-4
+// driver.SwitchTo().Window(handles[0]);
+// driver.FindElement(By.Name("q")).Click();
+// js.ExecuteScript("arguments[0].value = 'juicer';", driver.FindElement(By.Name("q")));
+// driver.FindElement(By.Name("q")).SendKeys(Keys.Return);
+
+// driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[2]/div[2]")).Click();
+
+// handles = driver.WindowHandles;
+// driver.SwitchTo().Window(handles[1]);
+
+// driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[1]/button")).Click();
+// driver.Close();
 driver.SwitchTo().Window(handles[0]);
-driver.FindElement(By.Name("q")).Click();
-js.ExecuteScript("arguments[0].value = 'juicer';", driver.FindElement(By.Name("q")));
-driver.FindElement(By.Name("q")).SendKeys(Keys.Return);
+driver.Navigate().Refresh();
+driver.FindElement(By.XPath("//*[@id='container']/div/div[1]/div[1]/div[2]/div[6]/div/div/a"));
+int count = driver.FindElements(By.XPath("//*[@id='container']/div/div[2]/div/div/div[1]/div/div[2]/following-sibling::div")).Count();
 
-driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[2]/div[2]")).Click();
-
-handles = driver.WindowHandles;
-driver.SwitchTo().Window(handles[1]);
-
-driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[1]/button")).Click();
-//driver.Close();
-
-
-
-//driver.Quit();
+driver.Quit();
