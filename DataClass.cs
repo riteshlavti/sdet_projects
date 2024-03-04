@@ -1,6 +1,7 @@
-﻿namespace FlipkartTest2;
-
-public class DataClass
+﻿namespace FlipkartTest
 {
-    public const string BASE_URI = "https://www.flipkart.com";
+    public class DataClass
+    {
+        public const string BASE_URI = "https://www.flipkart.com";
+    }
 }
