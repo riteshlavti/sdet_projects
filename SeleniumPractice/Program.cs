@@ -42,7 +42,7 @@ driver.FindElement(By.Name("q")).Click();
 
 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
 js.ExecuteScript("arguments[0].value = 'Fridge';", driver.FindElement(By.Name("q")));
-driver.FindElement(By.Name("q")).SendKeys(Keys.Return);
+driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
 
 driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[2]/div[2]")).Click();
 
@@ -83,7 +83,8 @@ driver.Close();
 // driver.Close();
 driver.SwitchTo().Window(handles[0]);
 driver.Navigate().Refresh();
-driver.FindElement(By.XPath("//*[@id='container']/div/div[1]/div[1]/div[2]/div[6]/div/div/a"));
+//driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+driver.FindElement(By.XPath("//*[@id='container']/div/div[1]/div[1]/div[2]/div[6]/div/div/a")).Click();
 int count = driver.FindElements(By.XPath("//*[@id='container']/div/div[2]/div/div/div[1]/div/div[2]/following-sibling::div")).Count();
-
+Console.WriteLine(count);
 driver.Quit();
