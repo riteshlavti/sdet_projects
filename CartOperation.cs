@@ -1,27 +1,34 @@
-﻿using OpenQA.Selenium;
+﻿using System.Runtime.Serialization;
+using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V120.Input;
 using OpenQA.Selenium.Support.UI;
-
+using SeleniumExtras.WaitHelpers;
 namespace FlipkartTest
 {
-    public class CartOperation
+    public class CartOperation : Base
     {
         public static void AddToCart(WebDriver driver, string query)
         {
-            var handles = driver.WindowHandles;
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
-            driver.SwitchTo().Window(handles[0]);
+            Wrapper.SwitchWindow(0, driver);
+            IWebElement searchBar = Wrapper.FindElementByName("q",driver);
+            Wrapper.ClickElement(searchBar);
 
-            driver.FindElement(By.Name("q")).Click();
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript($"arguments[0].value = {query};", driver.FindElement(By.Name("q")));
-            driver.FindElement(By.Name("q")).SendKeys(Keys.Return);
+            js.ExecuteScript($"arguments[0].value = '{query}';", searchBar);
 
-            driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[2]/div[2]")).Click();
+            Wrapper.SendEnterKey(searchBar);
 
-            driver.SwitchTo().Window(handles[1]);
-            driver.FindElement(By.XPath("//*[@id='container']/div/div[3]/div[1]/div[1]/div[2]/div/ul/li[1]/button")).Click();
+            IWebElement product = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath($"//div[contains(text(),'{query}')]")));
+            Wrapper.ClickElement(product);
 
-            driver.Close();
+            Wrapper.SwitchWindow(1, driver);
+
+            IWebElement cartButton = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[text()='Add to cart']")));
+            Wrapper.ClickElement(cartButton);
+
+            Wrapper.CloseDriver(driver);
         }
     }
 }
