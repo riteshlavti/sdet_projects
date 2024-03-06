@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PageObjectModel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9965b377ea2f460f21c4b690bd166483d65a590e")]
 [assembly: System.Reflection.AssemblyProductAttribute("PageObjectModel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PageObjectModel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

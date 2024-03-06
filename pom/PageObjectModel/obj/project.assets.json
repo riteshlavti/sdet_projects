@@ -1508,11 +1508,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Training\\pom\\PageObjectModel\\PageObjectModel.csproj",
+      "projectUniqueName": "D:\\Training\\sdet_riteshlavti\\pom\\PageObjectModel\\PageObjectModel.csproj",
       "projectName": "PageObjectModel",
-      "projectPath": "D:\\Training\\pom\\PageObjectModel\\PageObjectModel.csproj",
+      "projectPath": "D:\\Training\\sdet_riteshlavti\\pom\\PageObjectModel\\PageObjectModel.csproj",
       "packagesPath": "C:\\Users\\ritesh.lavti\\.nuget\\packages\\",
-      "outputPath": "D:\\Training\\pom\\PageObjectModel\\obj\\",
+      "outputPath": "D:\\Training\\sdet_riteshlavti\\pom\\PageObjectModel\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ritesh.lavti\\AppData\\Roaming\\NuGet\\NuGet.Config"

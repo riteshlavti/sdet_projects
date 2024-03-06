@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools.V120.WebAuthn;
+using OpenQA.Selenium.Support.Extensions;
 using SeleniumExtras.PageObjects;
 
 namespace PageObjectModel;
@@ -12,6 +13,16 @@ public class ResultPage
     {
         this.driver = driver;
         PageFactory.InitElements(driver,this);
+    }
+
+    public void TakeScreenshotAndSave1(string path)
+    {
+        ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(path);
+    }
+
+    public void TakeScreenshotAndSave2(string path)
+    {
+        driver.TakeScreenshot().SaveAsFile(path);
     }
 
     public void SwitchToAlertWindowAndAccept(IAlert alert)
