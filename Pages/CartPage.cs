@@ -35,10 +35,9 @@ namespace FlipkartTest
             return _priceValue.Text;
         }
 
-        public int StoreAllVisibleElements()
+        public void StoreAllVisibleElements()
         {
             cartProductsList = webDriver.FindElements(By.XPath("//a[contains(text(),'oneplus-nord')]"));
-            return cartProductsList.Count;
         }
     }
 }

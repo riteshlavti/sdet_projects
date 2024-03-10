@@ -8,11 +8,10 @@ namespace FlipkartTest
     public class ProductPage
     {
         WebDriver webDriver;
+        WebDriverWait wait;
 
         [FindsBy(How = How.XPath, Using = "//button[text()='Add to cart']")]
         IWebElement _cartBtn;
-
-        WebDriverWait wait;
 
         public ProductPage(WebDriver webDriver, WebDriverWait wait)
         {
@@ -34,7 +33,7 @@ namespace FlipkartTest
         {
             try
             {
-                bool value =  element.Enabled;
+                bool value = element.Enabled;
 
                 return value;
             }
