@@ -7,16 +7,14 @@ namespace TestProject
 {
     public class CartPage : SeleniumWrapper
     {
-        WebDriver webDriver;
         public IList<IWebElement> cartProductsList;
 
         [FindsBy(How = How.XPath, Using = "//div[text()='Total Amount']//parent::div//following-sibling::div")]
         IWebElement _totalPriceValue;
-        public const string ProductPriceXpath = "//div[contains(@class,'col-12-12')]/div/div/div/span[contains(text(),'₹')][last()]";
+        public const string ProductPriceXpath = "//span[1][contains(text(),'₹')]";
 
         public CartPage(WebDriver webDriver) : base(webDriver)
         {
-            this.webDriver = webDriver;
             PageFactory.InitElements(webDriver, this);
         }
 
@@ -25,7 +23,7 @@ namespace TestProject
             return _totalPriceValue.Text;
         }
 
-        public void StoreAllVisibleElements()
+        public void StoreAllCartProducts()
         {
             cartProductsList = webDriver.FindElements(By.XPath("//a[contains(text(),'Apple')]"));
         }

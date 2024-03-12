@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-
+using DataSet;
 namespace TestProject
 {
     [TestFixture]
@@ -8,9 +8,9 @@ namespace TestProject
         [Test]
         public void VerifyTotalAmount()
         {
-            ResultPage resultPage = homePage.SearchProduct(DataManager.SearchQuery);
-            resultPage.SetPriceRange(DataManager.MinPrice,DataManager.MaxPrice);            
-            resultPage.StoreAllVisibleElements();
+            ResultPage resultPage = homePage.SearchProduct(TestData.TestSearchQuery);
+            resultPage.SetPriceRange(TestData.DropDownMinPrice,TestData.DropDownMaxPrice);            
+            resultPage.StoreAllVisibleProducts();
             int totalAmount = resultPage.GetTotalAmountOfProductsAdded();
 
             resultPage.RefreshPage();

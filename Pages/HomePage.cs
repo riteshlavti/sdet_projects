@@ -6,16 +6,11 @@ namespace TestProject
 {
     public class HomePage : SeleniumWrapper
     {
-        private WebDriver webDriver;
-        WebDriverWait wait;
-
         [FindsBy(How = How.Name, Using = "q")]
         private IWebElement _searchBar; 
 
         public HomePage(WebDriver webDriver, WebDriverWait wait) : base(webDriver,wait)
         {
-            this.webDriver = webDriver;
-            this.wait = wait;
             PageFactory.InitElements(webDriver,this);
         }
 

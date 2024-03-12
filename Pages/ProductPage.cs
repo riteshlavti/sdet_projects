@@ -7,16 +7,11 @@ namespace TestProject
 {
     public class ProductPage : SeleniumWrapper
     {
-        WebDriver webDriver;
-        WebDriverWait wait;
-
         [FindsBy(How = How.XPath, Using = "//button[text()='Add to cart']")]
         IWebElement _cartBtn;
 
         public ProductPage(WebDriver webDriver, WebDriverWait wait) : base(webDriver,wait)
         {
-            this.webDriver = webDriver;
-            this.wait = wait;
             PageFactory.InitElements(webDriver, this);
         }
 

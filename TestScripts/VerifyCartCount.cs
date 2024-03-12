@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using OpenQA.Selenium;
-
+using DataSet;
 namespace TestProject
 {
     [TestFixture]
@@ -9,14 +9,14 @@ namespace TestProject
         [Test]
         public void VerifyCartCount()
         {
-            ResultPage resultPage = homePage.SearchProduct(DataManager.SearchQuery);
-            resultPage.SetPriceRange(DataManager.MinPrice,DataManager.MaxPrice);            
-            resultPage.StoreAllVisibleElements();
+            ResultPage resultPage = homePage.SearchProduct(TestData.TestSearchQuery);
+            resultPage.SetPriceRange(TestData.DropDownMinPrice,TestData.DropDownMaxPrice);            
+            resultPage.StoreAllVisibleProducts();
             int count = resultPage.CountProductsAdded();
 
             resultPage.RefreshPage();
             CartPage cartPage = resultPage.ClickOnCart();
-            cartPage.StoreAllVisibleElements();
+            cartPage.StoreAllCartProducts();
             
             Assert.That(cartPage.cartProductsList.Count,Is.EqualTo(count));
         }

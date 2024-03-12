@@ -9,9 +9,7 @@ namespace TestProject
 {
     public class ResultPage : SeleniumWrapper
     {
-        WebDriver webDriver;
-        WebDriverWait wait;
-        public IList<IWebElement> visibleElementsList;
+        public IList<IWebElement> visibleProductsList;
 
         [FindsBy(How = How.XPath, Using = "//span[text()='Cart']")]
         private IWebElement _cartButton;
@@ -29,8 +27,6 @@ namespace TestProject
 
         public ResultPage(WebDriver webDriver, WebDriverWait wait) : base(webDriver,wait)
         {
-            this.webDriver = webDriver;
-            this.wait = wait;
             PageFactory.InitElements(webDriver, this);
         }
 
@@ -44,10 +40,10 @@ namespace TestProject
             selectMaxPrice.SelectByValue(value);
         }
 
-        public void StoreAllVisibleElements()
+        public void StoreAllVisibleProducts()
         {
             IsClearAllVisible();
-            visibleElementsList = webDriver.FindElements(By.XPath("//div[contains(text(),'Apple iPhone')]"));
+            visibleProductsList = webDriver.FindElements(By.XPath("//div[contains(text(),'Apple iPhone')]"));
         }
 
         public ProductPage ClickOnProduct(IWebElement element)
@@ -108,7 +104,7 @@ namespace TestProject
         public int CountProductsAdded()
         {
             int count =0;
-            foreach (IWebElement element in visibleElementsList)
+            foreach (IWebElement element in visibleProductsList)
             {
                 ProductPage productPage = ClickOnProduct(element);
                 if (productPage.ClickOnAddToCart())
@@ -124,7 +120,7 @@ namespace TestProject
         public int GetTotalAmountOfProductsAdded()
         {
             int totalAmount =0;
-            foreach (IWebElement element in visibleElementsList)
+            foreach (IWebElement element in visibleProductsList)
             {
                 int price = PriceStringToInt(GetProductPrice(element));
                 ProductPage productPage = ClickOnProduct(element);
@@ -142,7 +138,7 @@ namespace TestProject
         public List<string> GetAddedProductPriceList()
         {
             List<string> addedProductListPrice = new List<string>();
-            foreach (IWebElement element in visibleElementsList)
+            foreach (IWebElement element in visibleProductsList)
             {
                 string price = GetProductPrice(element);
                 ProductPage productPage = ClickOnProduct(element);

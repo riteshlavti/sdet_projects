@@ -6,15 +6,15 @@ namespace TestProject
 {
     public class SeleniumWrapper
     {
-        protected IWebDriver webDriver;
+        protected WebDriver webDriver;
         protected WebDriverWait wait;
-        public SeleniumWrapper(IWebDriver webDriver, WebDriverWait wait)
+        public SeleniumWrapper(WebDriver webDriver, WebDriverWait wait)
         {
             this.webDriver = webDriver;
             this.wait = wait;
         }
 
-        public SeleniumWrapper(IWebDriver webDriver)
+        public SeleniumWrapper(WebDriver webDriver)
         {
             this.webDriver = webDriver;
         }
