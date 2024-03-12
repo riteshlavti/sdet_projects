@@ -1,34 +1,51 @@
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 
-namespace FlipkartTest
+namespace TestProject
 {
-    public class HomePage
+    public class HomePage : SeleniumWrapper
     {
         private WebDriver webDriver;
+        WebDriverWait wait;
 
         [FindsBy(How = How.Name, Using = "q")]
         private IWebElement _searchBar; 
 
-        public HomePage(WebDriver webDriver)
+        public HomePage(WebDriver webDriver, WebDriverWait wait) : base(webDriver,wait)
         {
             this.webDriver = webDriver;
+            this.wait = wait;
             PageFactory.InitElements(webDriver,this);
+        }
+
+        public HomePage LoadUrl()
+        {
+            webDriver.Url = "https://www.flipkart.com";
+            return new HomePage(webDriver,wait);
         }
 
         public void ClickOnSearchBar()
         {
-            Wrapper.ClickElement(_searchBar);
+            ClickElement(_searchBar);
         }
 
         public void SendInputToSearchBar(string input)
         {
-            Wrapper.SendInput(_searchBar,input);
+            SendInput(_searchBar,input);
         }
 
-        public void SendEnterKeyToSearchBar()
+        public ResultPage SendEnterKeyToSearchBar()
         {
-            Wrapper.SendEnterKey(_searchBar);
+            SendEnterKey(_searchBar);
+            return new ResultPage(webDriver,wait);
+        }
+
+        public ResultPage SearchProduct(string input)
+        {
+            ClickOnSearchBar();
+            SendInputToSearchBar(input);
+            return SendEnterKeyToSearchBar();
         }
     }
 }

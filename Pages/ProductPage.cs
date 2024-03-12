@@ -3,9 +3,9 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 
-namespace FlipkartTest
+namespace TestProject
 {
-    public class ProductPage
+    public class ProductPage : SeleniumWrapper
     {
         WebDriver webDriver;
         WebDriverWait wait;
@@ -13,34 +13,26 @@ namespace FlipkartTest
         [FindsBy(How = How.XPath, Using = "//button[text()='Add to cart']")]
         IWebElement _cartBtn;
 
-        public ProductPage(WebDriver webDriver, WebDriverWait wait)
+        public ProductPage(WebDriver webDriver, WebDriverWait wait) : base(webDriver,wait)
         {
             this.webDriver = webDriver;
+            this.wait = wait;
             PageFactory.InitElements(webDriver, this);
         }
 
         public bool ClickOnAddToCart()
         {
-            if (ElementExists(_cartBtn))
+            if (IsElementExists(_cartBtn))
             {
-                Wrapper.ClickElement(_cartBtn);
+                ClickElement(_cartBtn);
                 return true;
             }
             else return false;
         }
 
-        static bool ElementExists(IWebElement element)
+        public void SwitchToResultWindow()
         {
-            try
-            {
-                bool value = element.Enabled;
-
-                return value;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
+            SwitchToWindow(0);
         }
     }
 }

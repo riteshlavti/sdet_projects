@@ -3,41 +3,31 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 
-namespace FlipkartTest
+namespace TestProject
 {
-    public class CartPage
+    public class CartPage : SeleniumWrapper
     {
         WebDriver webDriver;
         public IList<IWebElement> cartProductsList;
 
         [FindsBy(How = How.XPath, Using = "//div[text()='Total Amount']//parent::div//following-sibling::div")]
-        IWebElement _priceValue;
-        WebDriverWait wait;
+        IWebElement _totalPriceValue;
+        public const string ProductPriceXpath = "//div[contains(@class,'col-12-12')]/div/div/div/span[contains(text(),'₹')][last()]";
 
-        public CartPage(WebDriver webDriver, WebDriverWait wait)
+        public CartPage(WebDriver webDriver) : base(webDriver)
         {
             this.webDriver = webDriver;
             PageFactory.InitElements(webDriver, this);
         }
 
-        public void CloseTab()
+        public string GetPrice()
         {
-            Wrapper.CloseTab(webDriver);
-        }
-
-        public void SwitchToResultWindow()
-        {
-            webDriver.SwitchTo().Window(webDriver.WindowHandles[0]);
-        }
-
-        public string ReturnsPrice()
-        {
-            return _priceValue.Text;
+            return _totalPriceValue.Text;
         }
 
         public void StoreAllVisibleElements()
         {
-            cartProductsList = webDriver.FindElements(By.XPath("//a[contains(text(),'oneplus-nord')]"));
+            cartProductsList = webDriver.FindElements(By.XPath("//a[contains(text(),'Apple')]"));
         }
     }
 }
