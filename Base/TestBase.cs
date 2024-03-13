@@ -7,7 +7,7 @@ namespace TestProject
     public class TestBase
     {
         public WebDriver webDriver;
-        public static WebDriverWait wait;
+        public WebDriverWait wait;
         public HomePage homePage;
 
         [SetUp]
