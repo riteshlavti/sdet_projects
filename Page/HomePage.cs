@@ -18,9 +18,6 @@ namespace TestProject
         [FindsBy(How=How.CssSelector,Using ="input[id='Search']")]
         IWebElement _searchBox;        
 
-        [FindsBy(How=How.XPath,Using ="//div[@class='results__group-2']//descendant::a[contains(@href,'collections/deal-of-the-day')]")]
-        IWebElement _dotd;
-
         [FindsBy(How=How.CssSelector,Using ="div[class='button--text']")]
         IWebElement _offerPopUp;
 
@@ -56,11 +53,9 @@ namespace TestProject
             SendInput(_searchBox,query);
         }
 
-        public DealOfTheDayPage GoToDealOfTheDayPage()
+        public DealOfTheDayPage GoToDealOfTheDayPage(string url)
         {
-            ClickOnSearchBtn();
-            SearchQuery("Deal of the day");
-            ClickElement(_dotd);
+            NavigateToUrl(url);
             return new DealOfTheDayPage(webDriver,wait);
         }
 

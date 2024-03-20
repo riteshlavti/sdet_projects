@@ -47,6 +47,10 @@ namespace TestProject
             {
                 ((IJavaScriptExecutor)webDriver).ExecuteScript("arguments[0].click();", webElement);
             }
+            catch(ElementNotInteractableException)
+            {
+                ((IJavaScriptExecutor)webDriver).ExecuteScript("arguments[0].click();", webElement);
+            }
             catch (NoSuchElementException error)
             {
                 throw new Exception(error.Message);
@@ -70,7 +74,7 @@ namespace TestProject
             }
             catch (StaleElementReferenceException)
             {
-                webElement.SendKeys(input);
+                wait.Until(ExpectedConditions.ElementToBeClickable(webElement)).SendKeys(input);
             }
         }
 
@@ -84,13 +88,14 @@ namespace TestProject
             webDriver.Navigate().Refresh();
         }
 
-        public IWebElement FindElement(IWebElement webElement, string input)
+        public IWebElement FindElement(IWebElement webElement, string xpathToFind)
         {
-            return webElement.FindElement(By.XPath(input));
+            return webElement.FindElement(By.XPath(xpathToFind));
         }
 
         public IWebElement FindElement(string xpathToFind)
         {
+            IsElementVisible(By.XPath("//div[contains(text(),'TEE#330')]"));
             return webDriver.FindElement(By.XPath(xpathToFind));
         }
 
@@ -139,6 +144,11 @@ namespace TestProject
         public string GetCurrentUrl()
         {
             return webDriver.Url;
+        }
+
+        public void IsElementClickable(IWebElement webElement)
+        {
+            wait.Until(ExpectedConditions.ElementToBeClickable(webElement));
         }
     }
 }

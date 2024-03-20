@@ -35,6 +35,7 @@ namespace TestProject
         
         public void SelectSize(string size)
         {
+            IsElementClickable(_sizeDropDown);
             selectSize = new SelectElement(_sizeDropDown);
             selectSize.SelectByValue(size);
         }
@@ -49,7 +50,7 @@ namespace TestProject
             IsElementVisible(_productSizeOnCartPaneLocator );
             return _productSizeOnCartPane.Text;
         }
-        
+
         public string GetProductName()
         {
             return _productName.Text;

@@ -15,7 +15,7 @@ namespace TestProject
         [FindsBy(How= How.XPath,Using = "//button[contains(text(),'Sign In')]")]
         IWebElement _signInBtn;
 
-        By _incorrectCredentialsMsg = By.XPath("//div[@id='CustomerLoginForm']//li[text()='Incorrect email or password.']");
+        By _incorrectCredentialsMsg = By.ClassName("errors");
 
         public LoginPage(WebDriver webDriver, WebDriverWait wait) : base(webDriver, wait)
         {

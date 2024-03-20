@@ -5,7 +5,7 @@ namespace TestProject
 {
     public class AccountPage : PageBase
     {
-        By _myaccountText = By.XPath("//h1[text()='My account']");
+        By _myaccountText = By.CssSelector("h1[class='section-header__title']");
         public AccountPage(WebDriver webDriver,WebDriverWait wait) : base(webDriver,wait)
         {      
         }   

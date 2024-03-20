@@ -10,6 +10,8 @@ namespace TestProject
         IWebElement _payNowBtn;
         By _payNowBtnLocator = By.XPath("//span[text()='Pay now']//parent::button");
 
+        [FindsBy(How = How.CssSelector, Using = "input[id='basic-Razorpay Secure (UPI, Cards, Wallets, NetBanking)']")]
+        IWebElement _paymentMethod;
         public FinalCheckoutPage(WebDriver webDriver, WebDriverWait wait) : base(webDriver, wait)
         {
             PageFactory.InitElements(webDriver, this);
@@ -25,5 +27,11 @@ namespace TestProject
             ClickElement(_payNowBtn);
             return new PaymentPage(webDriver,wait);
         }
+
+        public bool IsPaymentMethodSelected()
+        {
+            IsElementClickable(_paymentMethod);
+            return _paymentMethod.Selected;
+        } 
     }
 }

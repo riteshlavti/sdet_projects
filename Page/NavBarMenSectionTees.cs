@@ -6,19 +6,11 @@ namespace TestProject
 {
     public class NavBarMenSectionTees : PageBase
     {
-        [FindsBy(How=How.XPath,Using ="//a[contains(text(),'Active Wear')]//parent::div/button")]
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Active Wear')]//parent::div/button")]
         IWebElement _activeWearDropDown;
 
-        [FindsBy(How=How.XPath,Using ="//a[contains(text(),'Printed Tees')]")]
-        IWebElement _printedTeesMenu;        
-
-        By _printedTeesBtn = By.XPath("//a[contains(text(),'Printed Tees')]");
-        By _poloTeesBtn = By.XPath("//a[contains(text(),'Polo Tees')]");
-        By _raglanTeesBtn = By.XPath("//a[contains(text(),'Raglan Tees')]");
-        By _pocketTeesBtn = By.XPath("//a[contains(text(),'Pocket Tees')]");
-        By _basicOversizeTeesBtn = By.XPath("//a[contains(text(),'Basic Oversize Tees')]");
-        By _athleticoActiveTeesBtn = By.XPath("//a[contains(text(),'Athletico - Active Wear Tees')]");
-        
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Printed Tees')]")]
+        IWebElement _printedTeesMenu;
         public NavBarMenSectionTees(WebDriver webDriver, WebDriverWait wait) : base(webDriver, wait)
         {
             PageFactory.InitElements(webDriver, this);
@@ -29,7 +21,7 @@ namespace TestProject
             ClickElement(_activeWearDropDown);
         }
 
-        public bool IsVisible(By locator)
+        public bool IsTeesOptionVisible(By locator)
         {
             return IsElementVisible(locator);
         }
@@ -37,7 +29,7 @@ namespace TestProject
         public PrintedTees ClickOnPrintedTees()
         {
             ClickElement(_printedTeesMenu);
-            return new PrintedTees(webDriver,wait);
+            return new PrintedTees(webDriver, wait);
         }
     }
 }

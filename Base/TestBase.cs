@@ -4,6 +4,7 @@ using AventStack.ExtentReports.Reporter;
 using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V120.Debugger;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
@@ -17,62 +18,44 @@ namespace TestProject
         public WebDriverWait wait;
         public HomePage homePage;
         protected ExtentReports extent;
+        protected ExtentManager extentManager;
         protected ExtentTest extentTest;
-        protected IConfigurationRoot configuration;
-        string browserName;
-
-        public TestBase(string browserName)
-        {
-            this.browserName = browserName;
-        }
+        public IConfigurationRoot configuration;
+        public ConfigData configData;
+        public ConfigBrowser configBrowser;
 
         [OneTimeSetUp]
-        public void ExtentStart()
+        public void OneTimeSetUp()
         {
-            string dir = @"D:\Training\FinalProject\Rdklu\TestReport\";
-            string fileName = $"Report{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.html";
-            ExtentSparkReporter sparkReporter = new ExtentSparkReporter(dir + fileName);
-            extent = new ExtentReports();
-            extent.AttachReporter(sparkReporter);
-
-            configuration = new ConfigurationBuilder()
-            .AddJsonFile(@"D:\Training\FinalProject\Rdklu\Config\data.json")
-            .Build();
+            extentManager = new ExtentManager();
+            configData = new ConfigData();
+            extentManager.InitializeExtent();
+            configuration = configData.GetConfigurationBuilder(); 
         }
 
         [SetUp]
         public void Setup()
         {
-            if (browserName.Equals("chrome"))
-            {
-                ChromeOptions options = new ChromeOptions();
-                options.AddArguments("--disable-notifications");
-                webDriver = new ChromeDriver(options);
-                wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            }
-            else if (browserName.Equals("firefox"))
-            {
-                FirefoxOptions options = new FirefoxOptions();
-                options.AddArguments("--disable-notifications");
-                webDriver = new FirefoxDriver(options);
-                wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            }
-
+            configBrowser = new ConfigBrowser();
+            webDriver = configBrowser.GetBrowser();
+            wait = new WebDriverWait(webDriver,TimeSpan.FromSeconds(10));
             homePage = new HomePage(webDriver, wait);
-            homePage.LoadUrl(configuration.GetSection("BaseUrl")["Url"]);
-            homePage.ClosePopUp();
+            extentManager.CreateTest(TestContext.CurrentContext.Test.Name);
+            homePage.LoadUrl(configuration.GetSection("Url")["BaseUrl"]);
         }
 
         [TearDown]
         public void TearDown()
         {
+            extentManager.EndTest();
+            extentManager.LogScreenshot("Ending Test with screenshot", ((ITakesScreenshot)webDriver).GetScreenshot().AsBase64EncodedString);
             webDriver.Quit();
         }
 
         [OneTimeTearDown]
-        public void ExtentClose()
+        public void CloseExtent()
         {
-            extent.Flush();
+            extentManager.CloseExtent();
         }
     }
 }

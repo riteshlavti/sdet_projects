@@ -19,7 +19,7 @@ namespace TestProject
         {
             PageFactory.InitElements(webDriver, this);
         }
-        public int GetListedProductsCountOnPage()
+        public int GetCountOfProductsListedOnPage()
         {
             return FindElements(_product).Count;
         }
